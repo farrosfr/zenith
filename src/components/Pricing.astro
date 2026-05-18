@@ -92,35 +92,40 @@ import Badge from './Badge.astro';
     let isAnnual = false;
 
     if (toggle && thumb && monthlyLabel && annualLabel) {
-      // Clean up previous event listeners on View Transition page loads
+      // Clean up previous event listeners by cloning
       const newToggle = toggle.cloneNode(true);
       toggle.parentNode?.replaceChild(newToggle, toggle);
 
       newToggle.addEventListener('click', () => {
         isAnnual = !isAnnual;
         
+        // Use a consistent way to update elements
         if (isAnnual) {
           newToggle.classList.remove('bg-slate-200', 'dark:bg-slate-700');
           newToggle.classList.add('bg-primary-600');
-          thumb?.classList.replace('translate-x-0', 'translate-x-5');
-          monthlyLabel.classList.replace('font-bold', 'font-medium');
-          monthlyLabel.classList.replace('text-slate-900', 'text-slate-500');
-          monthlyLabel.classList.replace('dark:text-white', 'dark:text-slate-400');
           
-          annualLabel.classList.replace('font-medium', 'font-bold');
-          annualLabel.classList.replace('text-slate-500', 'text-slate-900');
-          annualLabel.classList.replace('dark:text-slate-400', 'dark:text-white');
+          const thumbEl = newToggle.querySelector('#toggle-thumb');
+          thumbEl?.classList.remove('translate-x-0');
+          thumbEl?.classList.add('translate-x-5');
+
+          monthlyLabel.classList.remove('font-bold', 'text-slate-900', 'dark:text-white');
+          monthlyLabel.classList.add('font-medium', 'text-slate-500', 'dark:text-slate-400');
+          
+          annualLabel.classList.remove('font-medium', 'text-slate-50', 'dark:text-slate-400');
+          annualLabel.classList.add('font-bold', 'text-slate-900', 'dark:text-white');
         } else {
           newToggle.classList.remove('bg-primary-600');
           newToggle.classList.add('bg-slate-200', 'dark:bg-slate-700');
-          thumb?.classList.replace('translate-x-5', 'translate-x-0');
-          monthlyLabel.classList.replace('font-medium', 'font-bold');
-          monthlyLabel.classList.replace('text-slate-500', 'text-slate-900');
-          monthlyLabel.classList.replace('dark:text-slate-400', 'dark:text-white');
           
-          annualLabel.classList.replace('font-bold', 'font-medium');
-          annualLabel.classList.replace('text-slate-900', 'text-slate-500');
-          annualLabel.classList.replace('dark:text-white', 'dark:text-slate-400');
+          const thumbEl = newToggle.querySelector('#toggle-thumb');
+          thumbEl?.classList.remove('translate-x-5');
+          thumbEl?.classList.add('translate-x-0');
+
+          monthlyLabel.classList.remove('font-medium', 'text-slate-500', 'dark:text-slate-400');
+          monthlyLabel.classList.add('font-bold', 'text-slate-900', 'dark:text-white');
+          
+          annualLabel.classList.remove('font-bold', 'text-slate-900', 'dark:text-white');
+          annualLabel.classList.add('font-medium', 'text-slate-500', 'dark:text-slate-400');
         }
 
         prices.forEach(priceEl => {
@@ -131,5 +136,8 @@ import Badge from './Badge.astro';
     }
   }
 
+  // Initial load
+  setupPricingToggle();
+  // View transitions
   document.addEventListener('astro:page-load', setupPricingToggle);
 </script>
