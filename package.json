@@ -1,7 +1,26 @@
 {
   "name": "zenix",
+  "description": "A polished Astro SaaS theme with landing pages, blog, changelog, dark mode, search, and MDX content.",
   "type": "module",
   "version": "0.0.1",
+  "license": "MIT",
+  "homepage": "https://zenix.farros.co/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/farrosfr/zenix.git"
+  },
+  "bugs": {
+    "url": "https://github.com/farrosfr/zenix/issues"
+  },
+  "keywords": [
+    "astro",
+    "astro-theme",
+    "tailwindcss",
+    "saas",
+    "landing-page",
+    "blog",
+    "mdx"
+  ],
   "engines": {
     "node": ">=22.12.0"
   },

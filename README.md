@@ -1,106 +1,103 @@
-<div align="center">
+# Zenix
 
-  <h1>✨ Zenix Astro Theme</h1>
+Zenix is a polished Astro SaaS theme with responsive landing sections, pricing, blog, changelog, dark mode, search, and MDX content support.
 
-  <p>A hand-crafted, highly technical Astro theme built for Micro-SaaS founders who want to stand out from the generic "AI-generated" look.</p>
+[Live demo](https://zenix.farros.co/) · [Repository](https://github.com/farrosfr/zenix)
 
-  <p>
-    <a href="https://farrosfr.github.io/zenix/"><img src="https://img.shields.io/badge/View_Demo-Live_Preview-4F46E5?style=for-the-badge" alt="View Demo" /></a>
-    <img src="https://img.shields.io/badge/Astro-v5.0-FF5D01?style=for-the-badge&logo=astro&logoColor=white" alt="Astro Version" />
-    <img src="https://img.shields.io/badge/Tailwind-v4.0-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind Version" />
-  </p>
+## Features
 
-</div>
+- Astro 6 with static output
+- Tailwind CSS 4 styling
+- Responsive SaaS landing page sections
+- Pricing, FAQ, testimonials, blog, and changelog pages
+- MDX content with reusable callout components
+- Dark and light mode with persisted user preference
+- Command palette search
+- Astro view transitions
+- Playwright UI regression tests
 
----
+## Quick Start
 
-## 🚀 Why Zenix?
-
-The market is flooded with standard, safe, centered layouts. Zenix breaks the mold. We built Zenix with aggressive architectural decisions to ensure your product looks **premium, hand-crafted, and technically sophisticated.**
-
-*   **⚡️ Blazing Fast:** Built on Astro's islands architecture. Ships zero JavaScript by default.
-*   **💅 "Anti-Generic" Design:** Features a complex asymmetrical "Bento Box" grid, subtle scroll-reveal animations, and bespoke typography (Space Grotesk + Inter).
-*   **🌑 True Dark Mode:** Not just inverted colors. A dedicated OLED-optimized dark theme engine built natively with Tailwind `dark:` variants.
-*   **🧠 SPA-like Routing:** Utilizes Astro's native `<ViewTransitions />` for instant, seamless page navigation.
-*   **📝 Powerful Content Engine:** Write in MDX. Comes with a sticky, auto-updating Table of Contents and custom UI components (like `<Callout>`) out of the box.
-
-## 🛠️ Quick Start
-
-Get up and running in under 2 minutes.
+Create a new Astro project from the GitHub template:
 
 ```bash
-# 1. Clone the repository
-git clone https://github.com/yourusername/zenix.git my-saas
+npm create astro@latest -- --template farrosfr/zenix
+```
 
-# 2. Enter the directory
-cd my-saas
+Or clone the repository directly:
 
-# 3. Install dependencies
+```bash
+git clone https://github.com/farrosfr/zenix.git my-saas-site
+cd my-saas-site
 npm install
-
-# 4. Start the development server
 npm run dev
 ```
 
-Visit `http://localhost:4321` to see your site live!
+Open `http://localhost:4321/` in your browser.
 
-## ⚙️ Configuration (The `config.ts` File)
+## Commands
 
-Zenix is designed to be customized from a single file. Open `src/config.ts` to instantly change the branding across the entire site:
+```bash
+npm run dev       # Start the local dev server
+npm run build     # Build the production site
+npm run preview   # Preview the production build
+npm run test:e2e  # Run Playwright regression tests
+```
 
-```typescript
-// src/config.ts
-export const SITE_TITLE = 'Your App Name';
-export const SITE_DESCRIPTION = 'The best solution for X.';
+## Configuration
 
-// Social Links (Updates the Footer instantly)
+Most site-level settings live in `src/config.ts`:
+
+```ts
+export const SITE_TITLE = 'Zenix';
+export const SITE_DESCRIPTION = 'High-converting, performance-focused Astro theme for Micro-SaaS products.';
+export const SITE_URL = 'https://zenix.farros.co';
+
 export const SOCIAL_LINKS = {
-  twitter: 'https://twitter.com/yourhandle',
-  github: 'https://github.com/yourhandle',
+  twitter: 'https://twitter.com/farrosfr_',
+  github: 'https://github.com/farrosfr',
+  linkedin: 'https://linkedin.com/in/yourhandle',
 };
 ```
 
-## 🎨 Writing Content (Blog & Changelog)
+Update these values before publishing your own site.
 
-Zenix utilizes the modern **Astro Content Layer API**. 
+## Content
 
-All content lives in the `src/content/` directory. You can write using standard Markdown (`.md`) or MDX (`.mdx`).
+Blog posts and changelog entries are powered by Astro content collections.
 
-### Adding a new blog post:
-Create a new `.mdx` file in `src/content/blog/`:
+- Blog posts: `src/content/blog/`
+- Changelog entries: `src/content/changelog/`
+- Authors: `src/content/authors/`
+
+Example blog post:
 
 ```mdx
 ---
 title: "My First Post"
 description: "A short summary."
 pubDate: 2026-06-01
-author: "Founder"
+author: farros
 tags: ["update", "feature"]
 ---
 
-# Hello World!
+# Hello World
 
-This is my first post. 
-
-<Callout type="success" title="Success!">
-  You can use custom MDX components right inside your writing!
+<Callout type="success" title="Ready">
+  MDX components can be used directly inside content.
 </Callout>
 ```
 
-## 🚢 Deployment
+## Deployment
 
-Zenix is a static site. You can deploy it for free anywhere!
+Zenix builds to a static site and can be deployed to Vercel, Netlify, Cloudflare Pages, GitHub Pages, or any static hosting provider.
 
-### Vercel / Netlify / Cloudflare Pages
-1. Push your code to a GitHub repository.
-2. Import the repository into your preferred hosting provider.
-3. The platform will automatically detect Astro and build your site.
+For production, update `site` in `astro.config.mjs` to match your domain.
 
-### GitHub Pages
-Zenix includes a pre-configured GitHub Actions workflow (`.github/workflows/deploy.yml`). Just push to your `main` or `master` branch, and the action will automatically build and deploy your site to GitHub Pages!
+## Theme Submission Notes
 
-*(Note: Ensure you update the `site` and `base` properties in `astro.config.mjs` if using GitHub pages).*
+This repository is public, uses public npm dependencies, and includes setup documentation for new users. Preview images for the Astro theme directory should be 16:9, at least 1280px wide, and less than 5MB combined.
 
-## 📄 License
+## License
 
-MIT License. Do whatever you want with it! (Just don't resell the theme itself).
+MIT
