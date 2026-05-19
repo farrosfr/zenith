@@ -2,6 +2,8 @@
 
 Zenix is a polished Astro SaaS theme with responsive landing sections, pricing, blog, changelog, dark mode, search, and MDX content support.
 
+![alt text](image-1.png)
+
 [Live demo](https://zenix.farros.co/) · [Repository](https://github.com/farrosfr/zenix)
 
 ## Features
