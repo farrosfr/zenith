@@ -2,9 +2,9 @@
 const testimonials = [
   {
     quote: "Zenix saved me weeks of development time. I was able to focus entirely on my product's core features instead of tweaking landing page CSS.",
-    author: "Sarah Jenkins",
+    author: "David Morgan",
     role: "Founder, DataFlow",
-    avatar: "https://i.pravatar.cc/150?u=sarah"
+    avatar: "https://i.pravatar.cc/150?u=david"
   },
   {
     quote: "The cleanest Astro theme I've used. The code is structured beautifully, and the Lighthouse scores are genuinely 100 straight out of the box.",
@@ -51,7 +51,7 @@ const testimonials = [
           </blockquote>
           
           <div class="flex items-center gap-4 relative z-10">
-            <img src={t.avatar} alt={t.author} class="w-12 h-12 rounded-full border-2 border-slate-100 dark:border-slate-800 shadow-sm" loading="lazy" />
+            <img src={t.avatar} alt={`Portrait of ${t.author}`} width="48" height="48" class="w-12 h-12 rounded-full border-2 border-slate-100 dark:border-slate-800 shadow-sm" loading="lazy" />
             <div>
               <div class="font-bold text-slate-900 dark:text-white">{t.author}</div>
               <div class="text-sm text-slate-500 dark:text-slate-400">{t.role}</div>

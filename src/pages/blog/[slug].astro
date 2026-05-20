@@ -47,7 +47,15 @@ const mdxComponents = {
 };
 ---
 
-<BaseLayout title={entry.data.title} description={entry.data.description}>
+<BaseLayout
+  title={entry.data.title}
+  description={entry.data.description}
+  image={entry.data.image}
+  type="article"
+  publishedDate={entry.data.pubDate}
+  modifiedDate={entry.data.updatedDate ?? entry.data.pubDate}
+  author={authorName}
+>
   <article class="py-24 md:py-32 bg-white dark:bg-[#09090b] relative overflow-hidden">
     
     <!-- Background Glow -->
@@ -67,10 +75,10 @@ const mdxComponents = {
           </time>
           <span class="w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-700"></span>
           <a href={author?.data.twitter} class="min-w-0 text-slate-900 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 inline-flex items-center gap-2 transition-colors">
-            <span class="relative inline-flex h-6 w-6 shrink-0 items-center justify-center overflow-hidden rounded-full bg-primary-100 text-[10px] font-bold text-primary-700 ring-1 ring-primary-200 dark:bg-primary-900/40 dark:text-primary-300 dark:ring-primary-800">
-              <span>{authorInitials}</span>
-              {authorAvatar && (
-                <img src={authorAvatar} alt="" class="absolute inset-0 h-full w-full rounded-full object-cover" loading="lazy" onerror="this.remove()" />
+              <span class="relative inline-flex h-6 w-6 shrink-0 items-center justify-center overflow-hidden rounded-full bg-primary-100 text-[10px] font-bold text-primary-700 ring-1 ring-primary-200 dark:bg-primary-900/40 dark:text-primary-300 dark:ring-primary-800">
+                <span>{authorInitials}</span>
+                {authorAvatar && (
+                <img src={authorAvatar} alt={`${authorName} avatar`} width="24" height="24" class="absolute inset-0 h-full w-full rounded-full object-cover" loading="lazy" onerror="this.remove()" />
               )}
             </span>
             <span class="leading-6">{authorName}</span>
@@ -109,7 +117,7 @@ const mdxComponents = {
                 <span class="relative inline-flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-full bg-primary-100 text-sm font-bold text-primary-700 ring-1 ring-primary-200 dark:bg-primary-900/40 dark:text-primary-300 dark:ring-primary-800">
                   <span>{authorInitials}</span>
                   {authorAvatar && (
-                    <img src={authorAvatar} alt="" class="absolute inset-0 h-full w-full rounded-full object-cover" loading="lazy" onerror="this.remove()" />
+                    <img src={authorAvatar} alt={`${authorName} avatar`} width="44" height="44" class="absolute inset-0 h-full w-full rounded-full object-cover" loading="lazy" onerror="this.remove()" />
                   )}
                 </span>
                 <div class="min-w-0 pt-0.5">

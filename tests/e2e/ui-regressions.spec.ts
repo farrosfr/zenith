@@ -108,6 +108,51 @@ test.describe('blog regressions', () => {
   });
 });
 
+test.describe('seo regressions', () => {
+  test('homepage exposes canonical, robots, open graph, and twitter metadata', async ({ page }) => {
+    await page.goto('/');
+
+    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://zenix.farros.co/');
+    await expect(page.locator('link[rel="sitemap"]')).toHaveAttribute('href', '/sitemap.xml');
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'index, follow');
+    await expect(page.locator('meta[property="og:title"]')).toHaveAttribute('content', 'Home | Zenix');
+    await expect(page.locator('meta[property="og:type"]')).toHaveAttribute('content', 'website');
+    await expect(page.locator('meta[property="og:url"]')).toHaveAttribute('content', 'https://zenix.farros.co/');
+    await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', 'https://zenix.farros.co/og-image.png');
+    await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute('content', 'summary_large_image');
+    await expect(page.locator('meta[name="twitter:site"]')).toHaveAttribute('content', '@farrosfr_');
+    await expect(page.locator('meta[name="twitter:image"]')).toHaveAttribute('content', 'https://zenix.farros.co/og-image.png');
+  });
+
+  test('article pages expose article dates and BlogPosting structured data', async ({ page }) => {
+    await page.goto('/blog/introducing-zenix/');
+
+    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://zenix.farros.co/blog/introducing-zenix/');
+    await expect(page.locator('meta[property="og:type"]')).toHaveAttribute('content', 'article');
+    await expect(page.locator('meta[property="article:published_time"]')).toHaveAttribute('content', '2026-05-18T00:00:00.000Z');
+    await expect(page.locator('meta[property="article:modified_time"]')).toHaveAttribute('content', '2026-05-18T00:00:00.000Z');
+
+    const structuredData = await page.locator('script[type="application/ld+json"]').textContent();
+    expect(structuredData).toContain('"@type":"BlogPosting"');
+    expect(structuredData).toContain('"datePublished":"2026-05-18T00:00:00.000Z"');
+    expect(structuredData).toContain('"dateModified":"2026-05-18T00:00:00.000Z"');
+    expect(structuredData).toContain('"name":"Mochammad Farros F. R."');
+  });
+
+  test('sitemap and robots are crawlable', async ({ page }) => {
+    const sitemap = await page.goto('/sitemap.xml');
+    expect(sitemap?.ok()).toBe(true);
+    await expect(page.locator('body')).toContainText('https://zenix.farros.co/');
+    await expect(page.locator('body')).toContainText('https://zenix.farros.co/blog/introducing-zenix/');
+
+    const robots = await page.goto('/robots.txt');
+    expect(robots?.ok()).toBe(true);
+    await expect(page.locator('body')).toContainText('User-agent: *');
+    await expect(page.locator('body')).toContainText('Allow: /');
+    await expect(page.locator('body')).toContainText('Sitemap: https://zenix.farros.co/sitemap.xml');
+  });
+});
+
 test.describe('layout regressions', () => {
   test('footer newsletter form does not overlap footer columns', async ({ page, isMobile }) => {
     await page.goto('/');
