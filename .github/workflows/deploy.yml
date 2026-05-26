@@ -9,44 +9,9 @@ on:
         type: string
 
 jobs:
-  trigger:
+  deploy:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
-      - uses: actions/github-script@v7
-        id: parse
-        with:
-          script: |
-            const payload = JSON.parse(context.payload.inputs.payload);
-            const branch = payload.repository.ref;
-            const sha = payload.repository.sha;
-            core.setOutput('branch', branch);
-            core.setOutput('sha', sha);
-            core.summary.addHeading('Deploy preview');
-            core.summary.addRaw('Branch: **' + branch + '**');
-            await core.summary.write();
-
-      - name: Validate branch
+      - name: Trigger Cloudflare Pages deploy hook
         run: |
-          BRANCH="${{ steps.parse.outputs.branch }}"
-          if [ "$BRANCH" = "master" ]; then
-            echo "::error::Branch is master. Deploy preview expects a non-master branch."
-            exit 1
-          fi
-          echo "Deploying preview for branch: $BRANCH"
-
-      - uses: actions/checkout@v4
-        with:
-          ref: ${{ steps.parse.outputs.sha }}
-
-      - name: Trigger Cloudflare Pages build
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: ${{ steps.parse.outputs.branch }}
-        run: |
-          echo "Pushing empty commit to branch: $BRANCH"
-          git config user.name "zenix-cms"
-          git config user.email "cms@zenix.app"
-          git commit --allow-empty -m "ci: trigger preview build"
-          git push origin HEAD:"$BRANCH"
+          curl -X POST "https://api.cloudflare.com/client/v4/pages/webhooks/deploy_hooks/1c7515a5-36ec-46c5-9be2-98c22eae899f"
