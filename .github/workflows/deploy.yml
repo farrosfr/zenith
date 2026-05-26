@@ -31,4 +31,4 @@ jobs:
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
-          command: pages deploy dist --project-name zenix --branch ${{ fromJson(github.event.inputs.payload).repository.ref }}
+          command: pages deploy dist --project-name zenix-test --branch ${{ fromJson(github.event.inputs.payload).repository.ref }}
