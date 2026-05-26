@@ -2,6 +2,26 @@
 import Button from './Button.astro';
 import Badge from './Badge.astro';
 import { resolvePath } from '../utils/navigation';
+
+interface Props {
+  badge?: string;
+  headline?: string;
+  subheadline?: string;
+  ctaPrimary?: string;
+  ctaPrimaryHref?: string;
+  ctaSecondary?: string;
+  ctaSecondaryHref?: string;
+}
+
+const {
+  badge = '\u{1F680} Zenix v2.0 is now live',
+  headline = 'A calmer foundation for <span class="text-gradient">modern SaaS websites.</span>',
+  subheadline = 'A focused Astro theme with clean sections, fast pages, and thoughtful defaults for product teams.',
+  ctaPrimary = 'Start Building Now',
+  ctaPrimaryHref = '/pricing/',
+  ctaSecondary = 'Explore Features',
+  ctaSecondaryHref = '#features',
+} = Astro.props;
 ---
 
 <section class="relative pt-32 pb-32 lg:pt-48 lg:pb-40 overflow-hidden">
@@ -15,24 +35,23 @@ import { resolvePath } from '../utils/navigation';
   <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center reveal-on-scroll">
     <div class="flex justify-center mb-8">
       <Badge variant="primary" class="px-4 py-1.5 text-sm border border-primary-200 dark:border-primary-800 backdrop-blur-md bg-white/50 dark:bg-primary-900/50">
-        <span class="mr-2">🚀</span> Zenix v2.0 is now live
+        {badge}
       </Badge>
     </div>
     
-    <h1 class="text-6xl sm:text-7xl lg:text-8xl font-heading font-extrabold tracking-tight text-slate-900 dark:text-white mb-8 max-w-5xl mx-auto leading-[1.1]">
-      A calmer foundation for <span class="text-gradient">modern SaaS websites.</span>
+    <h1 class="text-6xl sm:text-7xl lg:text-8xl font-heading font-extrabold tracking-tight text-slate-900 dark:text-white mb-8 max-w-5xl mx-auto leading-[1.1]" set:html={headline}>
     </h1>
     
     <p class="text-xl sm:text-2xl text-slate-600 dark:text-slate-400 mb-12 max-w-3xl mx-auto font-sans leading-relaxed">
-      A focused Astro theme with clean sections, fast pages, and thoughtful defaults for product teams.
+      {subheadline}
     </p>
     
     <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20">
-      <Button href={resolvePath('/pricing/')} variant="primary" size="lg" class="w-full sm:w-auto text-lg px-8 py-4 shadow-xl shadow-primary-500/20">
-        Start Building Now
+      <Button href={resolvePath(ctaPrimaryHref)} variant="primary" size="lg" class="w-full sm:w-auto text-lg px-8 py-4 shadow-xl shadow-primary-500/20">
+        {ctaPrimary}
       </Button>
-      <Button href="#features" variant="outline" size="lg" class="w-full sm:w-auto text-lg px-8 py-4 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm">
-        Explore Features
+      <Button href={ctaSecondaryHref} variant="outline" size="lg" class="w-full sm:w-auto text-lg px-8 py-4 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm">
+        {ctaSecondary}
       </Button>
     </div>
 

@@ -1,0 +1,145 @@
+{
+  "hero": {
+    "badge": "\uD83D\uDE80 Zenix v2.0 is now live",
+    "headline": "A calmer foundation for <span class=\"text-gradient\">modern SaaS websites.</span>",
+    "subheadline": "A focused Astro theme with clean sections, fast pages, and thoughtful defaults for product teams.",
+    "ctaPrimary": "Start Building Now",
+    "ctaPrimaryHref": "/pricing/",
+    "ctaSecondary": "Explore Features",
+    "ctaSecondaryHref": "#features"
+  },
+  "features": {
+    "heading": "Everything you need, <br/><span class=\"text-slate-400 dark:text-slate-500\">nothing you don't.</span>",
+    "subtitle": "Ditch the bloat. Zenix gives you a powerful, composable foundation that scales from MVP to Enterprise.",
+    "items": [
+      {
+        "title": "Blazing Fast Astro Architecture",
+        "description": "Built on Astro's islands architecture, Zenix ships zero JavaScript by default. Achieve perfect 100/100 Lighthouse scores without breaking a sweat, ensuring your visitors never wait."
+      },
+      {
+        "title": "Conversion Optimized",
+        "description": "Designed using proven SaaS landing page heuristics. Every button, gradient, and layout choice is engineered to convert visitors."
+      },
+      {
+        "title": "Tailwind v4 Native",
+        "description": "Built with the latest version of Tailwind CSS. Customize the entire theme's typography and color palette from a single config file."
+      },
+      {
+        "title": "Powerful MDX Content Engine",
+        "description": "Write your blog posts and changelogs in Markdown or MDX. Render complex interactive components directly inside your written content with full Astro Content Collection type-safety."
+      }
+    ]
+  },
+  "testimonials": {
+    "heading": "Loved by Founders",
+    "subtitle": "Don't just take our word for it. See what others are building with Zenix.",
+    "items": [
+      {
+        "quote": "Zenix saved me weeks of development time. I was able to focus entirely on my product's core features instead of tweaking landing page CSS.",
+        "author": "David Morgan",
+        "role": "Founder, DataFlow",
+        "avatar": "https://i.pravatar.cc/150?u=david"
+      },
+      {
+        "quote": "The cleanest Astro theme I've used. The code is structured beautifully, and the Lighthouse scores are genuinely 100 straight out of the box.",
+        "author": "Marcus Chen",
+        "role": "Indie Hacker",
+        "avatar": "https://i.pravatar.cc/150?u=marcus"
+      },
+      {
+        "quote": "Converted my old React landing page to Zenix in a day. The bundle size dropped by 90% and my conversion rate went up by 15%. Highly recommend.",
+        "author": "Elena Rodriguez",
+        "role": "CEO, Streamline",
+        "avatar": "https://i.pravatar.cc/150?u=elena"
+      }
+    ]
+  },
+  "pricing": {
+    "heading": "Simple, transparent pricing",
+    "subtitle": "No hidden fees. No surprise charges. Just choose the plan that works best for you.",
+    "toggleMonthly": "Monthly",
+    "toggleAnnual": "Annually",
+    "toggleBadge": "Save 20%",
+    "plans": [
+      {
+        "name": "Starter",
+        "description": "Perfect for side projects and indie hackers.",
+        "priceMonthly": "$19",
+        "priceAnnual": "$15",
+        "buttonLabel": "Get Started",
+        "buttonVariant": "outline",
+        "popular": false,
+        "features": [
+          "Up to 1,000 users",
+          "Basic analytics",
+          "Community support"
+        ]
+      },
+      {
+        "name": "Pro",
+        "description": "For growing startups that need more power.",
+        "priceMonthly": "$49",
+        "priceAnnual": "$39",
+        "buttonLabel": "Get Started",
+        "buttonVariant": "primary",
+        "popular": true,
+        "popularBadge": "Most Popular",
+        "features": [
+          "Up to 10,000 users",
+          "Advanced analytics",
+          "Priority email support",
+          "Custom domain"
+        ]
+      },
+      {
+        "name": "Enterprise",
+        "description": "Custom solutions for large scale operations.",
+        "priceMonthly": "$99",
+        "priceAnnual": "$79",
+        "buttonLabel": "Contact Sales",
+        "buttonVariant": "outline",
+        "popular": false,
+        "features": [
+          "Unlimited users",
+          "Custom reporting",
+          "24/7 phone support",
+          "SLA Guarantee"
+        ]
+      }
+    ]
+  },
+  "faq": {
+    "heading": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know about Zenix.",
+    "items": [
+      {
+        "question": "Do I need to know Astro to use Zenix?",
+        "answer": "Basic knowledge of HTML and Tailwind CSS is helpful, but you don't need to be an Astro expert. The code is well-commented and structured to be intuitive even for beginners."
+      },
+      {
+        "question": "Can I use this for client projects?",
+        "answer": "Yes. Zenix is released under the MIT license, so you can use it for personal, commercial, and client projects."
+      },
+      {
+        "question": "Does it work with standard Markdown?",
+        "answer": "Yes, the blog supports both standard Markdown (.md) and MDX (.mdx) files, allowing you to embed interactive components directly in your posts."
+      },
+      {
+        "question": "How do I deploy it?",
+        "answer": "Since it's built with Astro, you can deploy it anywhere that hosts static sites: Vercel, Netlify, Cloudflare Pages, GitHub Pages, or your own server."
+      },
+      {
+        "question": "Can I customize the design?",
+        "answer": "Yes. Branding, navigation, social links, and common site settings live in src/config.ts, while sections and components can be edited directly."
+      }
+    ]
+  },
+  "cta": {
+    "heading": "Ready to launch your project?",
+    "subtitle": "Join hundreds of founders who are building faster with Zenix.",
+    "ctaPrimary": "Get Zenix Now",
+    "ctaPrimaryHref": "/pricing/",
+    "ctaSecondary": "Explore Features",
+    "ctaSecondaryHref": "#features"
+  }
+}

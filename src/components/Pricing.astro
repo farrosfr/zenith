@@ -1,14 +1,24 @@
 ---
 import Button from './Button.astro';
 import Badge from './Badge.astro';
+
+interface Props {
+  heading?: string;
+  subtitle?: string;
+}
+
+const {
+  heading = 'Simple, transparent pricing',
+  subtitle = 'No hidden fees. No surprise charges. Just choose the plan that works best for you.',
+} = Astro.props;
 ---
 
 <section id="pricing" class="py-32 bg-slate-50 dark:bg-[#0c0c0f] border-t border-slate-200 dark:border-slate-800">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     <div class="text-center max-w-3xl mx-auto mb-16 reveal-on-scroll">
-      <h2 class="text-4xl md:text-5xl font-heading font-extrabold text-slate-900 dark:text-white mb-6">Simple, transparent pricing</h2>
+      <h2 class="text-4xl md:text-5xl font-heading font-extrabold text-slate-900 dark:text-white mb-6">{heading}</h2>
       <p class="text-xl text-slate-600 dark:text-slate-400 mb-10">
-        No hidden fees. No surprise charges. Just choose the plan that works best for you.
+        {subtitle}
       </p>
 
       <!-- Toggle -->

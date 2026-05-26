@@ -6,29 +6,53 @@ import Testimonials from '../components/Testimonials.astro';
 import Pricing from '../components/Pricing.astro';
 import FAQ from '../components/FAQ.astro';
 import { resolvePath } from '../utils/navigation';
+import homepage from '../data/homepage.json';
 ---
 
 <BaseLayout title="Home">
-  <Hero />
-  <Features />
-  <Testimonials />
-  <Pricing />
-  <FAQ />
+  <Hero
+    badge={homepage.hero.badge}
+    headline={homepage.hero.headline}
+    subheadline={homepage.hero.subheadline}
+    ctaPrimary={homepage.hero.ctaPrimary}
+    ctaPrimaryHref={homepage.hero.ctaPrimaryHref}
+    ctaSecondary={homepage.hero.ctaSecondary}
+    ctaSecondaryHref={homepage.hero.ctaSecondaryHref}
+  />
+  <Features
+    heading={homepage.features.heading}
+    subtitle={homepage.features.subtitle}
+    items={homepage.features.items}
+  />
+  <Testimonials
+    heading={homepage.testimonials.heading}
+    subtitle={homepage.testimonials.subtitle}
+    items={homepage.testimonials.items}
+  />
+  <Pricing
+    heading={homepage.pricing.heading}
+    subtitle={homepage.pricing.subtitle}
+  />
+  <FAQ
+    heading={homepage.faq.heading}
+    subtitle={homepage.faq.subtitle}
+    items={homepage.faq.items}
+  />
   
-  <!-- Final CTA Section before footer -->
+  <!-- Final CTA Section -->
   <section class="py-32 bg-primary-600 dark:bg-primary-900 text-white text-center relative overflow-hidden">
     <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCI+CjxyZWN0IHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSI+PC9yZWN0Pgo8Y2lyY2xlIGN4PSIxIiBjeT0iMSIgcj0iMSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE1KSI+PC9jaXJjbGU+Cjwvc3ZnPg==')] opacity-50"></div>
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl relative z-10 reveal-on-scroll">
-      <h2 class="text-4xl md:text-6xl font-heading font-extrabold mb-6 tracking-tight">Ready to launch your project?</h2>
+      <h2 class="text-4xl md:text-6xl font-heading font-extrabold mb-6 tracking-tight">{homepage.cta.heading}</h2>
       <p class="text-xl text-primary-100 dark:text-primary-200 mb-12">
-        Join hundreds of founders who are building faster with Zenix.
+        {homepage.cta.subtitle}
       </p>
       <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <a href={resolvePath('/pricing/')} class="inline-flex items-center justify-center px-8 py-4 text-lg font-bold rounded-xl bg-white text-primary-600 hover:bg-slate-50 hover:scale-105 transition-all shadow-2xl shadow-black/20">
-          Get Zenix Now
+        <a href={resolvePath(homepage.cta.ctaPrimaryHref)} class="inline-flex items-center justify-center px-8 py-4 text-lg font-bold rounded-xl bg-white text-primary-600 hover:bg-slate-50 hover:scale-105 transition-all shadow-2xl shadow-black/20">
+          {homepage.cta.ctaPrimary}
         </a>
-        <a href="#features" class="inline-flex items-center justify-center px-8 py-4 text-lg font-bold rounded-xl border-2 border-primary-400 text-white hover:bg-primary-700 dark:hover:bg-primary-800 transition-colors">
-          Explore Features
+        <a href={homepage.cta.ctaSecondaryHref} class="inline-flex items-center justify-center px-8 py-4 text-lg font-bold rounded-xl border-2 border-primary-400 text-white hover:bg-primary-700 dark:hover:bg-primary-800 transition-colors">
+          {homepage.cta.ctaSecondary}
         </a>
       </div>
     </div>

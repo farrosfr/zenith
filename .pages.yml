@@ -104,6 +104,328 @@ content:
       - name: github
         type: string
 
+  - name: homepage
+    label: Homepage
+    type: group
+    items:
+      - name: homepage-hero
+        label: Hero
+        type: file
+        path: src/data/homepage.json
+        format: json
+        fields:
+          - name: hero
+            type: object
+            fields:
+              - name: badge
+                type: string
+              - name: headline
+                type: text
+              - name: subheadline
+                type: text
+              - name: ctaPrimary
+                type: string
+              - name: ctaPrimaryHref
+                type: string
+              - name: ctaSecondary
+                type: string
+              - name: ctaSecondaryHref
+                type: string
+
+      - name: homepage-features
+        label: Features
+        type: file
+        path: src/data/homepage.json
+        format: json
+        fields:
+          - name: features
+            type: object
+            fields:
+              - name: heading
+                type: text
+              - name: subtitle
+                type: text
+              - name: items
+                type: object
+                list: true
+                fields:
+                  - name: title
+                    type: string
+                  - name: description
+                    type: text
+
+      - name: homepage-testimonials
+        label: Testimonials
+        type: file
+        path: src/data/homepage.json
+        format: json
+        fields:
+          - name: testimonials
+            type: object
+            fields:
+              - name: heading
+                type: string
+              - name: subtitle
+                type: text
+              - name: items
+                type: object
+                list: true
+                fields:
+                  - name: quote
+                    type: text
+                  - name: author
+                    type: string
+                  - name: role
+                    type: string
+                  - name: avatar
+                    type: image
+
+      - name: homepage-pricing
+        label: Pricing
+        type: file
+        path: src/data/homepage.json
+        format: json
+        fields:
+          - name: pricing
+            type: object
+            fields:
+              - name: heading
+                type: string
+              - name: subtitle
+                type: text
+              - name: toggleMonthly
+                type: string
+              - name: toggleAnnual
+                type: string
+              - name: toggleBadge
+                type: string
+              - name: plans
+                type: object
+                list: true
+                fields:
+                  - name: name
+                    type: string
+                  - name: description
+                    type: text
+                  - name: priceMonthly
+                    type: string
+                  - name: priceAnnual
+                    type: string
+                  - name: buttonLabel
+                    type: string
+                  - name: buttonVariant
+                    type: string
+                  - name: popular
+                    type: boolean
+                  - name: popularBadge
+                    type: string
+                  - name: features
+                    type: list
+                    items:
+                      type: string
+
+      - name: homepage-faq
+        label: FAQ
+        type: file
+        path: src/data/homepage.json
+        format: json
+        fields:
+          - name: faq
+            type: object
+            fields:
+              - name: heading
+                type: string
+              - name: subtitle
+                type: text
+              - name: items
+                type: object
+                list: true
+                fields:
+                  - name: question
+                    type: string
+                  - name: answer
+                    type: text
+
+      - name: homepage-cta
+        label: CTA
+        type: file
+        path: src/data/homepage.json
+        format: json
+        fields:
+          - name: cta
+            type: object
+            fields:
+              - name: heading
+                type: string
+              - name: subtitle
+                type: text
+              - name: ctaPrimary
+                type: string
+              - name: ctaPrimaryHref
+                type: string
+              - name: ctaSecondary
+                type: string
+              - name: ctaSecondaryHref
+                type: string
+
+  - name: vidual-editor
+    label: Vidual Editor
+    type: group
+    items:
+      - name: ve-hero
+        label: Hero
+        type: file
+        path: src/data/vidual-editor.json
+        format: json
+        fields:
+          - name: hero
+            type: object
+            fields:
+              - name: badge
+                type: string
+              - name: headline
+                type: text
+              - name: subheadline
+                type: text
+              - name: ctaPrimary
+                type: string
+              - name: ctaPrimaryHref
+                type: string
+              - name: ctaSecondary
+                type: string
+              - name: ctaSecondaryHref
+                type: string
+
+      - name: ve-tabs
+        label: Deep Dive Tabs
+        type: file
+        path: src/data/vidual-editor.json
+        format: json
+        fields:
+          - name: tabs
+            type: object
+            fields:
+              - name: heading
+                type: string
+              - name: subtitle
+                type: text
+              - name: items
+                type: object
+                list: true
+                fields:
+                  - name: id
+                    type: string
+                  - name: label
+                    type: string
+                  - name: sublabel
+                    type: string
+                  - name: title
+                    type: string
+                  - name: description
+                    type: text
+                  - name: features
+                    type: list
+                    items:
+                      type: string
+
+      - name: ve-features
+        label: Features
+        type: file
+        path: src/data/vidual-editor.json
+        format: json
+        fields:
+          - name: features
+            type: object
+            fields:
+              - name: heading
+                type: text
+              - name: subtitle
+                type: text
+              - name: items
+                type: object
+                list: true
+                fields:
+                  - name: title
+                    type: string
+                  - name: description
+                    type: text
+
+      - name: ve-pricing
+        label: Pricing
+        type: file
+        path: src/data/vidual-editor.json
+        format: json
+        fields:
+          - name: pricing
+            type: object
+            fields:
+              - name: heading
+                type: string
+              - name: subtitle
+                type: text
+              - name: planName
+                type: string
+              - name: planDescription
+                type: text
+              - name: price
+                type: string
+              - name: priceLabel
+                type: string
+              - name: badge
+                type: string
+              - name: buttonLabel
+                type: string
+              - name: features
+                type: list
+                items:
+                  type: string
+              - name: footnote
+                type: text
+
+      - name: ve-faq
+        label: FAQ
+        type: file
+        path: src/data/vidual-editor.json
+        format: json
+        fields:
+          - name: faq
+            type: object
+            fields:
+              - name: heading
+                type: string
+              - name: subtitle
+                type: text
+              - name: items
+                type: object
+                list: true
+                fields:
+                  - name: question
+                    type: string
+                  - name: answer
+                    type: text
+
+      - name: ve-cta
+        label: CTA
+        type: file
+        path: src/data/vidual-editor.json
+        format: json
+        fields:
+          - name: cta
+            type: object
+            fields:
+              - name: heading
+                type: string
+              - name: subtitle
+                type: text
+              - name: ctaPrimary
+                type: string
+              - name: ctaPrimaryHref
+                type: string
+              - name: ctaSecondary
+                type: string
+              - name: ctaSecondaryHref
+                type: string
+
 settings:
   commit:
     identity: app

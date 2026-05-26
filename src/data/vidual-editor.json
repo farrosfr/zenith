@@ -1,0 +1,161 @@
+{
+  "hero": {
+    "badge": "\u2728 Vidual Editor \u2014 Now available",
+    "headline": "Build visually. Ship faster. <span class=\"text-gradient\">No code required.</span>",
+    "subheadline": "Vidual Editor is a revolutionary drag-and-drop visual builder that lets you create stunning pages, export clean production-ready code, and never fight with CSS again.",
+    "ctaPrimary": "Buy Now \u2014 $50",
+    "ctaPrimaryHref": "#",
+    "ctaSecondary": "Explore Features",
+    "ctaSecondaryHref": "#features"
+  },
+  "tabs": {
+    "heading": "See it in action",
+    "subtitle": "Explore each feature of Vidual Editor with a live preview.",
+    "items": [
+      {
+        "id": "tab-drag",
+        "label": "Drag & Drop Canvas",
+        "sublabel": "Pixel-perfect freedom",
+        "title": "Pixel-perfect drag & drop",
+        "description": "Unlike other builders that constrain you to rigid grids, Vidual Editor gives you complete freedom. Drag any element anywhere with real-time snapping, smart alignment guides, and responsive handles. Every movement is smooth, precise, and instantly previewed.",
+        "features": [
+          "Smart alignment guides and snapping",
+          "Responsive resize handles on every element",
+          "Undo/redo with history timeline"
+        ]
+      },
+      {
+        "id": "tab-components",
+        "label": "Component Library",
+        "sublabel": "200+ ready blocks",
+        "title": "200+ components at your fingertips",
+        "description": "Stop building from scratch. Browse a curated library of sections, blocks, and templates \u2014 from heroes and features to pricing tables and testimonials. Drag any component onto the canvas and customize it instantly. Every component is responsive and accessible by default.",
+        "features": [
+          "212 pre-built components and growing",
+          "Full-page templates to jumpstart any project",
+          "Save your own creations as custom components"
+        ]
+      },
+      {
+        "id": "tab-collab",
+        "label": "Real-time Collaboration",
+        "sublabel": "Edit together",
+        "title": "Collaborate in real time",
+        "description": "Invite your team and work together on the same project simultaneously. See each other's cursors, chat inline, and resolve changes with a shared version history. Like Google Docs or Figma \u2014 but built for web page creation.",
+        "features": [
+          "Live cursors and presence indicators",
+          "Built-in chat and comments",
+          "Version history with rollback"
+        ]
+      },
+      {
+        "id": "tab-ai",
+        "label": "AI Assistant",
+        "sublabel": "Generate with AI",
+        "title": "AI-powered content generation",
+        "description": "Describe what you need in plain English and let AI handle the rest. Generate entire sections, write compelling copy, choose color schemes, and adapt layouts \u2014 all without lifting a finger. Your creative assistant is always ready.",
+        "features": [
+          "Generate components and layouts from text descriptions",
+          "AI copywriting for headlines, CTAs, and body text",
+          "Smart color palette and typography suggestions"
+        ]
+      },
+      {
+        "id": "tab-export",
+        "label": "Export & Code",
+        "sublabel": "Clean output",
+        "title": "Zero lock-in. Clean code. Always.",
+        "description": "Unlike every other visual builder on the market, Vidual Editor exports standard HTML, CSS, and JavaScript \u2014 no proprietary frameworks, no hidden runtimes, no forced platforms. Deploy your site to any host, hand it off to any developer, or keep it as a static file. Your work is always yours.",
+        "features": [
+          "Export to HTML, React, or Vue",
+          "Semantic, accessible, Lighthouse-ready code",
+          "Deploy anywhere \u2014 Vercel, Netlify, GitHub Pages, your server"
+        ]
+      }
+    ]
+  },
+  "features": {
+    "heading": "Why Vidual Editor wins.<br/><span class=\"text-slate-400 dark:text-slate-500\">No competition comes close.</span>",
+    "subtitle": "We've reimagined visual editing from the ground up. Unlike bloated alternatives that lock you into proprietary ecosystems, Vidual Editor gives you freedom, performance, and clean code.",
+    "items": [
+      {
+        "title": "True Drag & Drop",
+        "description": "Unlike other builders that force you into rigid templates, Vidual Editor gives you pixel-perfect freedom with smart alignment guides, snapping, and responsive resizing."
+      },
+      {
+        "title": "Zero Vendor Lock-in",
+        "description": "Export clean, production-ready HTML, CSS, and JS. No proprietary formats, no hidden runtime, no forced hosting. Your work belongs to you, always."
+      },
+      {
+        "title": "Real-time Collaboration",
+        "description": "Invite your team and edit together. See cursors, comments, and changes in real time. Like Figma, but purpose-built for web page creation."
+      },
+      {
+        "title": "Optimized Output",
+        "description": "Vidual Editor generates lightweight, semantic code that outperforms hand-written alternatives. Lighthouse 100 scores out of the box, every time."
+      },
+      {
+        "title": "200+ Built-in Components",
+        "description": "Start from a massive library of sections, blocks, and page templates. Buttons, forms, galleries, pricing tables \u2014 all fully customizable, all included."
+      },
+      {
+        "title": "AI-Powered Assistance",
+        "description": "Describe what you want and let AI generate entire components, layouts, and copy. Speed up your workflow 10x and focus on what matters."
+      }
+    ]
+  },
+  "pricing": {
+    "heading": "Simple, fair pricing",
+    "subtitle": "One payment. Lifetime access. No subscriptions, no upsells, no hidden fees.",
+    "planName": "Vidual Editor",
+    "planDescription": "Full product. One price. Yours forever.",
+    "price": "$50",
+    "priceLabel": "one-time",
+    "badge": "Best Value",
+    "buttonLabel": "Get Vidual Editor Now",
+    "features": [
+      "Full visual editor with drag & drop",
+      "Clean HTML/CSS/JS export",
+      "200+ components & templates",
+      "Real-time collaboration",
+      "AI-powered content generation",
+      "1 year of free updates",
+      "30-day money-back guarantee"
+    ],
+    "footnote": "Compare to similar tools starting at $29/month. Vidual Editor pays for itself in two months."
+  },
+  "faq": {
+    "heading": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know about Vidual Editor.",
+    "items": [
+      {
+        "question": "What is Vidual Editor?",
+        "answer": "Vidual Editor is a visual drag-and-drop web page builder that lets you create stunning, production-ready websites without writing code. It generates clean, standards-compliant HTML, CSS, and JavaScript that you can host anywhere."
+      },
+      {
+        "question": "Is it a one-time payment or subscription?",
+        "answer": "One-time payment of $50. No subscriptions, no recurring fees, no upsells. You get lifetime access to Vidual Editor including 1 year of free updates. It's that simple."
+      },
+      {
+        "question": "Can I export my projects?",
+        "answer": "Absolutely. Export your projects as clean, semantic HTML, CSS, and JavaScript files. No proprietary formats, no hidden runtimes. You can deploy anywhere \u2014 Vercel, Netlify, GitHub Pages, or your own server."
+      },
+      {
+        "question": "Do I need coding experience?",
+        "answer": "Not at all. Vidual Editor is designed for designers, marketers, and founders who want to build beautiful web pages without writing code. If you can drag and drop, you can use Vidual Editor. Developers love it too for rapid prototyping."
+      },
+      {
+        "question": "Is there a money-back guarantee?",
+        "answer": "Yes. If Vidual Editor doesn't meet your expectations within 30 days of purchase, we'll refund every cent. No questions asked. We're confident you'll love it, but there's zero risk to try."
+      }
+    ]
+  },
+  "cta": {
+    "heading": "Build your next project visually",
+    "subtitle": "Join 2,000+ creators who already build faster with Vidual Editor.",
+    "ctaPrimary": "Get Vidual Editor \u2014 $50",
+    "ctaPrimaryHref": "#",
+    "ctaSecondary": "View Features",
+    "ctaSecondaryHref": "#features"
+  }
+}
