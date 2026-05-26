@@ -1,6 +1,6 @@
 {
   "hero": {
-    "badge": "\uD83D\uDE80 Zenix v2.0 is now live",
+    "badge": "🚀 Zenix v2.0 is now live!",
     "headline": "A calmer foundation for <span class=\"text-gradient\">modern SaaS websites.</span>",
     "subheadline": "A focused Astro theme with clean sections, fast pages, and thoughtful defaults for product teams.",
     "ctaPrimary": "Start Building Now",
@@ -37,20 +37,17 @@
       {
         "quote": "Zenix saved me weeks of development time. I was able to focus entirely on my product's core features instead of tweaking landing page CSS.",
         "author": "David Morgan",
-        "role": "Founder, DataFlow",
-        "avatar": "https://i.pravatar.cc/150?u=david"
+        "role": "Founder, DataFlow"
       },
       {
         "quote": "The cleanest Astro theme I've used. The code is structured beautifully, and the Lighthouse scores are genuinely 100 straight out of the box.",
         "author": "Marcus Chen",
-        "role": "Indie Hacker",
-        "avatar": "https://i.pravatar.cc/150?u=marcus"
+        "role": "Indie Hacker"
       },
       {
         "quote": "Converted my old React landing page to Zenix in a day. The bundle size dropped by 90% and my conversion rate went up by 15%. Highly recommend.",
         "author": "Elena Rodriguez",
-        "role": "CEO, Streamline",
-        "avatar": "https://i.pravatar.cc/150?u=elena"
+        "role": "CEO, Streamline"
       }
     ]
   },
@@ -69,11 +66,7 @@
         "buttonLabel": "Get Started",
         "buttonVariant": "outline",
         "popular": false,
-        "features": [
-          "Up to 1,000 users",
-          "Basic analytics",
-          "Community support"
-        ]
+        "features": "Up to 1,000 users,Basic analytics,Community support"
       },
       {
         "name": "Pro",
@@ -84,12 +77,7 @@
         "buttonVariant": "primary",
         "popular": true,
         "popularBadge": "Most Popular",
-        "features": [
-          "Up to 10,000 users",
-          "Advanced analytics",
-          "Priority email support",
-          "Custom domain"
-        ]
+        "features": "\"Up to 10,000 users,Advanced analytics,Priority email support,Custom domain\""
       },
       {
         "name": "Enterprise",
@@ -99,12 +87,7 @@
         "buttonLabel": "Contact Sales",
         "buttonVariant": "outline",
         "popular": false,
-        "features": [
-          "Unlimited users",
-          "Custom reporting",
-          "24/7 phone support",
-          "SLA Guarantee"
-        ]
+        "features": "\"Unlimited users,Custom reporting,24/7 phone support,SLA Guarantee\""
       }
     ]
   },
