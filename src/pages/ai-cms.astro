@@ -1,0 +1,269 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+import Badge from '../components/Badge.astro';
+import { resolvePath } from '../utils/navigation';
+import data from '../data/ai-cms.json';
+
+const featureIcons = [
+  `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>`,
+  `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"></path><rect x="9" y="3" width="6" height="4" rx="1"></rect><path d="M9 14l2 2 4-4"></path></svg>`,
+  `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>`,
+  `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>`,
+  `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>`,
+  `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"></path><path d="M7 16l4-8 4 4 4-6"></path></svg>`,
+];
+
+function iconFor(index: number) {
+  return featureIcons[index] || featureIcons[0];
+}
+---
+
+<BaseLayout
+  title="AI CMS"
+  description="AI-powered content management system. Auto-generate, optimize, and personalize content at scale with artificial intelligence."
+>
+  <!-- ==================== HERO ==================== -->
+  <section class="relative pt-32 pb-32 lg:pt-48 lg:pb-40 overflow-hidden">
+    <div class="absolute inset-0 -z-10 bg-white dark:bg-[#09090b]">
+      <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCI+CjxyZWN0IHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSI+PC9yZWN0Pgo8Y2lyY2xlIGN4PSIxIiBjeT0iMSIgcj0iMSIgZmlsbD0icmdiYSgwLDAsMCwwLjA1KSI+PC9jaXJjbGU+Cjwvc3ZnPg==')] dark:bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCI+CjxyZWN0IHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSI+PC9yZWN0Pgo8Y2lyY2xlIGN4PSIxIiBjeT0iMSIgcj0iMSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSI+PC9jaXJjbGU+Cjwvc3ZnPg==')] [mask-image:linear-gradient(to_bottom,white,transparent)]"></div>
+      <div class="absolute top-0 right-0 -translate-y-12 translate-x-1/3 w-[800px] h-[600px] bg-primary-400/20 dark:bg-primary-900/30 rounded-full blur-[120px] opacity-80 mix-blend-multiply dark:mix-blend-screen animate-pulse"></div>
+      <div class="absolute bottom-0 left-0 translate-y-1/3 -translate-x-1/3 w-[600px] h-[500px] bg-accent-400/20 dark:bg-accent-900/30 rounded-full blur-[100px] opacity-80 mix-blend-multiply dark:mix-blend-screen"></div>
+    </div>
+
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center reveal-on-scroll">
+      <div class="flex justify-center mb-8">
+        <Badge variant="primary" class="px-4 py-1.5 text-sm border border-primary-200 dark:border-primary-800 backdrop-blur-md bg-white/50 dark:bg-primary-900/50">
+          {data.hero?.badge}
+        </Badge>
+      </div>
+
+      <h1 class="text-6xl sm:text-7xl lg:text-8xl font-heading font-extrabold tracking-tight text-slate-900 dark:text-white mb-8 max-w-5xl mx-auto leading-[1.1]" set:html={data.hero?.headline}>
+      </h1>
+
+      <p class="text-xl sm:text-2xl text-slate-600 dark:text-slate-400 mb-12 max-w-3xl mx-auto font-sans leading-relaxed">
+        {data.hero?.subheadline}
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20">
+        <Button href={data.hero?.ctaPrimaryHref} variant="primary" size="lg" class="w-full sm:w-auto text-lg px-8 py-4 shadow-xl shadow-primary-500/20">
+          {data.hero?.ctaPrimary}
+        </Button>
+        <Button href={data.hero?.ctaSecondaryHref} variant="outline" size="lg" class="w-full sm:w-auto text-lg px-8 py-4 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm">
+          {data.hero?.ctaSecondary}
+        </Button>
+      </div>
+
+      <!-- Dashboard Mockup -->
+      <div class="relative mx-auto max-w-6xl reveal-on-scroll" style="transition-delay: 200ms;">
+        <div class="aspect-[16/9] rounded-3xl bg-slate-900 dark:bg-[#111116] shadow-2xl border border-slate-800 dark:border-slate-800/80 overflow-hidden relative group hover-glow">
+          <div class="absolute top-4 left-4 flex gap-2 z-20">
+            <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+            <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+            <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+          </div>
+
+          <div class="flex h-full pt-12">
+            <!-- Sidebar -->
+            <div class="w-64 bg-slate-800/50 dark:bg-slate-900/50 border-r border-slate-700/50 p-4 hidden lg:block">
+              <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Content</div>
+              <div class="space-y-1">
+                <div class="flex items-center gap-2 px-3 py-2 bg-primary-500/20 rounded-lg border border-primary-500/30">
+                  <svg class="w-4 h-4 text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                  <span class="text-sm text-slate-200">Blog Posts</span>
+                  <span class="ml-auto text-xs text-primary-400 bg-primary-500/20 px-1.5 rounded">AI</span>
+                </div>
+                <div class="flex items-center gap-2 px-3 py-2 hover:bg-slate-700/50 rounded-lg transition-colors cursor-pointer">
+                  <svg class="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                  <span class="text-sm text-slate-400">Media Library</span>
+                </div>
+                <div class="flex items-center gap-2 px-3 py-2 hover:bg-slate-700/50 rounded-lg transition-colors cursor-pointer">
+                  <svg class="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+                  <span class="text-sm text-slate-400">Analytics</span>
+                </div>
+                <div class="flex items-center gap-2 px-3 py-2 hover:bg-slate-700/50 rounded-lg transition-colors cursor-pointer">
+                  <svg class="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                  <span class="text-sm text-slate-400">Settings</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="flex-1 bg-white dark:bg-slate-900 p-6 overflow-hidden">
+              <div class="flex items-center justify-between mb-6">
+                <div>
+                  <h3 class="text-lg font-bold text-slate-900 dark:text-white">Recent Posts</h3>
+                  <p class="text-sm text-slate-500">AI-suggested content for your audience</p>
+                </div>
+                <div class="px-3 py-1.5 bg-primary-100 dark:bg-primary-900/40 text-primary-600 dark:text-primary-400 text-xs font-semibold rounded-full">AI Active</div>
+              </div>
+
+              <div class="space-y-3">
+                <div class="flex items-center gap-4 p-4 bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-200 dark:border-slate-700/50">
+                  <div class="w-12 h-12 rounded-xl bg-primary-100 dark:bg-primary-900/40 flex items-center justify-center shrink-0">
+                    <svg class="w-6 h-6 text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" /></svg>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <div class="text-sm font-semibold text-slate-900 dark:text-white truncate">How AI is transforming content marketing in 2026</div>
+                    <div class="text-xs text-slate-500 mt-0.5">AI-generated · 2 min read</div>
+                  </div>
+                  <div class="flex items-center gap-1 text-xs text-green-600 dark:text-green-400 bg-green-100 dark:bg-green-900/30 px-2 py-1 rounded-full">
+                    <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+                    SEO: 92
+                  </div>
+                </div>
+
+                <div class="flex items-center gap-4 p-4 bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-200 dark:border-slate-700/50">
+                  <div class="w-12 h-12 rounded-xl bg-accent-100 dark:bg-accent-900/40 flex items-center justify-center shrink-0">
+                    <svg class="w-6 h-6 text-accent-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12" /></svg>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <div class="text-sm font-semibold text-slate-900 dark:text-white truncate">10 proven strategies to boost your conversion rate</div>
+                    <div class="text-xs text-slate-500 mt-0.5">Human-written · 5 min read</div>
+                  </div>
+                  <div class="flex items-center gap-1 text-xs text-green-600 dark:text-green-400 bg-green-100 dark:bg-green-900/30 px-2 py-1 rounded-full">
+                    <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+                    SEO: 88
+                  </div>
+                </div>
+
+                <div class="flex items-center gap-4 p-4 bg-primary-50 dark:bg-primary-900/20 rounded-xl border border-primary-200 dark:border-primary-800/50">
+                  <div class="w-12 h-12 rounded-xl bg-primary-100 dark:bg-primary-900/40 flex items-center justify-center shrink-0">
+                    <svg class="w-6 h-6 text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                  </div>
+                  <div class="flex-1">
+                    <div class="flex items-center gap-2">
+                      <span class="text-sm font-semibold text-primary-700 dark:text-primary-300">Generating with AI...</span>
+                      <span class="flex gap-0.5">
+                        <span class="w-1.5 h-1.5 bg-primary-400 rounded-full animate-bounce" style="animation-delay: 0ms;"></span>
+                        <span class="w-1.5 h-1.5 bg-primary-400 rounded-full animate-bounce" style="animation-delay: 150ms;"></span>
+                        <span class="w-1.5 h-1.5 bg-primary-400 rounded-full animate-bounce" style="animation-delay: 300ms;"></span>
+                      </span>
+                    </div>
+                    <div class="text-xs text-primary-500 mt-0.5">Creating: "The ultimate guide to AI-powered SEO"</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="absolute -top-12 -left-12 -z-10 w-96 h-96 bg-primary-500/30 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[100px]"></div>
+        <div class="absolute -bottom-12 -right-12 -z-10 w-96 h-96 bg-accent-500/30 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[100px]"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FEATURES ==================== -->
+  <section id="features" class="py-32 bg-slate-50 dark:bg-[#0c0c0f] border-y border-slate-200 dark:border-slate-800 relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-200/50 via-transparent to-transparent dark:from-primary-900/10 dark:via-transparent dark:to-transparent"></div>
+
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center max-w-3xl mx-auto mb-20 reveal-on-scroll">
+        <h2 class="text-4xl md:text-5xl font-heading font-extrabold text-slate-900 dark:text-white mb-6" set:html={data.features?.heading}>
+        </h2>
+        <p class="text-xl text-slate-600 dark:text-slate-400 font-sans">
+          {data.features?.subtitle}
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+        {data.features?.items?.map((item: { title: string; description: string }, i: number) => (
+          <div class="glass-panel rounded-3xl p-8 flex flex-col hover-glow reveal-on-scroll relative overflow-hidden group min-h-[320px]" style={`transition-delay: ${i * 50}ms;`}>
+            <div class="absolute inset-0 bg-gradient-to-br from-primary-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900/40 text-primary-600 dark:text-primary-400 rounded-2xl flex items-center justify-center mb-6 shrink-0" set:html={iconFor(i)}></div>
+            <h3 class="text-xl font-heading font-bold text-slate-900 dark:text-white mb-3">{item.title}</h3>
+            <p class="text-slate-600 dark:text-slate-400 leading-relaxed flex-grow">{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PRICING ==================== -->
+  <section id="pricing" class="py-32 bg-white dark:bg-[#09090b] relative overflow-hidden">
+    <div class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/3 w-[500px] h-[500px] bg-primary-500/10 dark:bg-primary-500/5 rounded-full blur-[100px] mix-blend-multiply dark:mix-blend-screen pointer-events-none"></div>
+
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center max-w-3xl mx-auto mb-16 reveal-on-scroll">
+        <h2 class="text-4xl md:text-5xl font-heading font-extrabold text-slate-900 dark:text-white mb-6">{data.pricing?.heading}</h2>
+        <p class="text-xl text-slate-600 dark:text-slate-400">{data.pricing?.subtitle}</p>
+      </div>
+
+      <div class="max-w-lg mx-auto">
+        <div class="glass-panel border-2 border-primary-500 dark:border-primary-500 rounded-3xl p-10 flex flex-col relative reveal-on-scroll shadow-2xl shadow-primary-500/10">
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2">
+            <Badge variant="primary" class="px-4 py-1.5 font-bold shadow-sm">{data.pricing?.badge}</Badge>
+          </div>
+
+          <h3 class="text-2xl font-heading font-bold text-slate-900 dark:text-white mb-2 mt-2 text-center">{data.pricing?.planName}</h3>
+          <p class="text-slate-500 dark:text-slate-400 text-sm mb-8 text-center">{data.pricing?.planDescription}</p>
+
+          <div class="text-center mb-8">
+            <span class="text-6xl font-heading font-extrabold text-slate-900 dark:text-white">{data.pricing?.price}</span>
+            <span class="text-slate-500 dark:text-slate-400 font-medium"> {data.pricing?.priceLabel}</span>
+          </div>
+
+          <Button variant="primary" class="w-full mb-8 text-lg py-4 shadow-xl shadow-primary-500/20">
+            {data.pricing?.buttonLabel}
+          </Button>
+
+          <ul class="space-y-4 text-sm text-slate-600 dark:text-slate-300">
+            {data.pricing?.features?.map((f: string) => (
+              <li class="flex gap-3">
+                <svg class="h-5 w-5 text-green-500 dark:text-green-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                {f}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <p class="text-center text-sm text-slate-400 dark:text-slate-500 mt-8 reveal-on-scroll">{data.pricing?.footnote}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FAQ ==================== -->
+  <section class="py-32 bg-slate-50 dark:bg-[#0c0c0f] border-y border-slate-200 dark:border-slate-800 relative overflow-hidden">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl relative z-10">
+      <div class="text-center mb-16 reveal-on-scroll">
+        <h2 class="text-4xl md:text-5xl font-heading font-extrabold text-slate-900 dark:text-white mb-6">{data.faq?.heading}</h2>
+        <p class="text-xl text-slate-600 dark:text-slate-400">{data.faq?.subtitle}</p>
+      </div>
+
+      <div class="space-y-4">
+        {data.faq?.items?.map((faq: { question: string; answer: string }, i: number) => (
+          <details class="group glass-panel rounded-2xl [&_summary::-webkit-details-marker]:hidden reveal-on-scroll" style={`transition-delay: ${i * 50}ms;`}>
+            <summary class="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-slate-900 dark:text-white font-medium">
+              <h3 class="text-lg font-heading font-bold">{faq.question}</h3>
+              <span class="relative h-5 w-5 shrink-0 text-slate-500 dark:text-slate-400 group-open:text-primary-600 dark:group-open:text-primary-400 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 h-5 w-5 opacity-100 group-open:opacity-0 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" /></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 h-5 w-5 opacity-0 group-open:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20 12H4" /></svg>
+              </span>
+            </summary>
+            <div class="px-6 pb-6 text-slate-600 dark:text-slate-400 leading-relaxed">
+              <p>{faq.answer}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FINAL CTA ==================== -->
+  <section class="py-32 bg-primary-600 dark:bg-primary-900 text-white text-center relative overflow-hidden">
+    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCI+CjxyZWN0IHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSI+PC9yZWN0Pgo8Y2lyY2xlIGN4PSIxIiBjeT0iMSIgcj0iMSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE1KSI+PC9jaXJjbGU+Cjwvc3ZnPg==')] opacity-50"></div>
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl relative z-10 reveal-on-scroll">
+      <h2 class="text-4xl md:text-6xl font-heading font-extrabold mb-6 tracking-tight">{data.cta?.heading}</h2>
+      <p class="text-xl text-primary-100 dark:text-primary-200 mb-12">{data.cta?.subtitle}</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href={data.cta?.ctaPrimaryHref} class="inline-flex items-center justify-center px-8 py-4 text-lg font-bold rounded-xl bg-white text-primary-600 hover:bg-slate-50 hover:scale-105 transition-all shadow-2xl shadow-black/20">
+          {data.cta?.ctaPrimary}
+        </a>
+        <a href={data.cta?.ctaSecondaryHref} class="inline-flex items-center justify-center px-8 py-4 text-lg font-bold rounded-xl border-2 border-primary-400 text-white hover:bg-primary-700 dark:hover:bg-primary-800 transition-colors">
+          {data.cta?.ctaSecondary}
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

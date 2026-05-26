@@ -1,0 +1,96 @@
+{
+  "hero": {
+    "badge": "\u2728 AI CMS \u2014 Now available",
+    "headline": "Let AI manage your content.<br/><span class=\"text-gradient\">You focus on what matters.</span>",
+    "subheadline": "AI CMS is a revolutionary content management system powered by artificial intelligence. Auto-generate, optimize, and personalize content at scale \u2014 without lifting a finger.",
+    "ctaPrimary": "Start Free Trial",
+    "ctaPrimaryHref": "#",
+    "ctaSecondary": "See Features",
+    "ctaSecondaryHref": "#features"
+  },
+  "features": {
+    "heading": "Why AI CMS is the future.<br/><span class=\"text-slate-400 dark:text-slate-500\">Content management, reimagined.</span>",
+    "subtitle": "Stop wasting hours on repetitive content tasks. AI CMS handles the heavy lifting so your team can focus on strategy and creativity.",
+    "items": [
+      {
+        "title": "AI Content Generation",
+        "description": "Generate blog posts, landing pages, and marketing copy in seconds. Simply describe what you need and our AI delivers production-ready content that matches your brand voice."
+      },
+      {
+        "title": "Smart Categorization",
+        "description": "AI automatically tags, categorizes, and organizes your content. No more manual taxonomies \u2014 the system learns your structure and keeps everything in order."
+      },
+      {
+        "title": "SEO Optimization Engine",
+        "description": "Get real-time SEO scores and suggestions as you write. The AI analyzes keywords, readability, and competition to ensure your content ranks before you publish."
+      },
+      {
+        "title": "Multi-language Support",
+        "description": "Translate and localize content across 50+ languages with a single click. The AI preserves context, tone, and cultural nuances for authentic translations."
+      },
+      {
+        "title": "Personalization at Scale",
+        "description": "Deliver personalized content experiences based on user behavior, preferences, and demographics. AI dynamically adapts your site for each visitor."
+      },
+      {
+        "title": "Analytics & Insights",
+        "description": "Understand what content performs best with AI-powered analytics. Get actionable recommendations to improve engagement, conversion, and retention."
+      }
+    ]
+  },
+  "pricing": {
+    "heading": "Simple, transparent pricing",
+    "subtitle": "No hidden fees. No surprise charges. Scale as you grow.",
+    "planName": "AI CMS Pro",
+    "planDescription": "Everything you need to supercharge your content workflow.",
+    "price": "$29",
+    "priceLabel": "per month",
+    "badge": "Most Popular",
+    "buttonLabel": "Start Free Trial",
+    "features": [
+      "Unlimited AI content generations",
+      "Smart categorization & tagging",
+      "Real-time SEO optimization",
+      "Multi-language support (up to 5 languages)",
+      "Personalization engine",
+      "Advanced analytics dashboard",
+      "API access",
+      "Priority support"
+    ],
+    "footnote": "Start with a 14-day free trial. No credit card required. Cancel anytime."
+  },
+  "faq": {
+    "heading": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know about AI CMS.",
+    "items": [
+      {
+        "question": "How does AI CMS generate content?",
+        "answer": "AI CMS uses advanced language models trained on millions of high-performing web pages. Simply provide a topic, keywords, or a brief description, and the AI generates original, contextually relevant content tailored to your brand guidelines."
+      },
+      {
+        "question": "Is the content truly original?",
+        "answer": "Yes. Every piece of content is generated uniquely for you. The AI does not copy from existing sources \u2014 it creates original text based on its training and your specific inputs. We also include plagiarism checks for peace of mind."
+      },
+      {
+        "question": "Can I customize the AI's output?",
+        "answer": "Absolutely. You can define brand voice, tone, style guidelines, and content templates. The AI learns your preferences over time and adapts its output to match your brand more closely with each use."
+      },
+      {
+        "question": "Do I need technical skills to use it?",
+        "answer": "Not at all. AI CMS is designed for content creators, marketers, and business owners. The interface is intuitive and requires zero coding. Just describe what you need and let the AI do the rest."
+      },
+      {
+        "question": "What happens after the free trial?",
+        "answer": "After your 14-day free trial, you can choose a plan that fits your needs. All data and content you create during the trial is preserved. If you decide not to continue, you can export everything before your trial ends."
+      }
+    ]
+  },
+  "cta": {
+    "heading": "Ready to transform your content workflow?",
+    "subtitle": "Join thousands of teams already using AI CMS to create better content, faster.",
+    "ctaPrimary": "Start Free Trial",
+    "ctaPrimaryHref": "#",
+    "ctaSecondary": "Talk to Sales",
+    "ctaSecondaryHref": "#"
+  }
+}

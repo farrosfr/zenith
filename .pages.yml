@@ -348,6 +348,100 @@ content:
           - name: ctaSecondaryHref
             type: string
 
+  - name: ai-cms
+    label: AI CMS
+    type: file
+    path: src/data/ai-cms.json
+    format: json
+    fields:
+      - name: hero
+        type: object
+        fields:
+          - name: badge
+            type: string
+          - name: headline
+            type: text
+          - name: subheadline
+            type: text
+          - name: ctaPrimary
+            type: string
+          - name: ctaPrimaryHref
+            type: string
+          - name: ctaSecondary
+            type: string
+          - name: ctaSecondaryHref
+            type: string
+      - name: features
+        type: object
+        fields:
+          - name: heading
+            type: text
+          - name: subtitle
+            type: text
+          - name: items
+            type: object
+            list: true
+            fields:
+              - name: title
+                type: string
+              - name: description
+                type: text
+      - name: pricing
+        type: object
+        fields:
+          - name: heading
+            type: string
+          - name: subtitle
+            type: text
+          - name: planName
+            type: string
+          - name: planDescription
+            type: text
+          - name: price
+            type: string
+          - name: priceLabel
+            type: string
+          - name: badge
+            type: string
+          - name: buttonLabel
+            type: string
+          - name: features
+            type: list
+            items:
+              type: string
+          - name: footnote
+            type: text
+      - name: faq
+        type: object
+        fields:
+          - name: heading
+            type: string
+          - name: subtitle
+            type: text
+          - name: items
+            type: object
+            list: true
+            fields:
+              - name: question
+                type: string
+              - name: answer
+                type: text
+      - name: cta
+        type: object
+        fields:
+          - name: heading
+            type: string
+          - name: subtitle
+            type: text
+          - name: ctaPrimary
+            type: string
+          - name: ctaPrimaryHref
+            type: string
+          - name: ctaSecondary
+            type: string
+          - name: ctaSecondaryHref
+            type: string
+
 actions:
   - name: deploy-preview
     label: Deploy preview
