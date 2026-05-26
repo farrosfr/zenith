@@ -1,0 +1,114 @@
+media:
+  input: public
+  output: /
+  rename: safe
+  categories: [image]
+
+content:
+  - name: blog
+    label: Blog posts
+    type: collection
+    path: src/content/blog
+    format: yaml-frontmatter
+    filename: "{primary}.mdx"
+    view:
+      fields: [title, pubDate, author, tags, draft]
+      primary: title
+      sort: pubDate
+      order: desc
+      search: true
+    fields:
+      - name: title
+        type: string
+        required: true
+      - name: description
+        type: text
+        required: true
+      - name: pubDate
+        type: date
+        required: true
+      - name: updatedDate
+        type: date
+      - name: author
+        type: reference
+        collection: authors
+        required: true
+      - name: image
+        type: image
+      - name: tags
+        type: list
+        items:
+          type: string
+      - name: draft
+        type: boolean
+        default: false
+
+  - name: changelog
+    label: Changelog
+    type: collection
+    path: src/content/changelog
+    format: yaml-frontmatter
+    filename: "{primary}.md"
+    view:
+      fields: [version, date, title, type]
+      primary: version
+      sort: date
+      order: desc
+      search: true
+    fields:
+      - name: version
+        type: string
+        required: true
+      - name: date
+        type: date
+        required: true
+      - name: title
+        type: string
+        required: true
+      - name: type
+        type: select
+        options:
+          - label: Major
+            value: major
+          - label: Minor
+            value: minor
+          - label: Patch
+            value: patch
+        default: minor
+
+  - name: authors
+    label: Authors
+    type: collection
+    path: src/content/authors
+    format: json
+    filename: "{primary}.json"
+    view:
+      fields: [name, role]
+      primary: name
+      search: true
+    fields:
+      - name: name
+        type: string
+        required: true
+      - name: role
+        type: string
+        required: true
+      - name: avatar
+        type: image
+        required: true
+      - name: bio
+        type: text
+        required: true
+      - name: twitter
+        type: string
+      - name: github
+        type: string
+
+settings:
+  commit:
+    identity: app
+    templates:
+      create: "content({action}): {path}"
+      update: "content({action}): {path}"
+      delete: "content({action}): {path}"
+      rename: "content({action}): {oldPath} -> {newPath}"
