@@ -12,16 +12,18 @@ jobs:
   trigger:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
     steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ fromJson(github.event.inputs.payload).repository.sha }}
+
       - name: Trigger Cloudflare Pages build
         env:
-          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
-          CF_ACCOUNT_ID: 4b2c65e127e12b9de8762c74625992ee
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           BRANCH=$(echo '${{ github.event.inputs.payload }}' | jq -r '.repository.ref')
-          curl -s -X POST \
-            "https://api.cloudflare.com/client/v4/accounts/$CF_ACCOUNT_ID/pages/projects/zenix-test/deployments" \
-            -H "Authorization: Bearer $CF_API_TOKEN" \
-            -H "Content-Type: application/json" \
-            -d "{\"branch\": \"$BRANCH\"}"
+          git config user.name "zenix-cms"
+          git config user.email "cms@zenix.app"
+          git commit --allow-empty -m "ci: trigger preview build"
+          git push origin HEAD:"$BRANCH"
