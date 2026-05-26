@@ -1,0 +1,31 @@
+name: Merge & deploy to production
+
+on:
+  workflow_dispatch:
+    inputs:
+      payload:
+        description: Pages CMS payload as JSON
+        required: true
+        type: string
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+          fetch-depth: 0
+
+      - name: Merge branch to master
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BRANCH=$(echo '${{ github.event.inputs.payload }}' | jq -r '.repository.ref')
+          git config user.name "zenix-cms"
+          git config user.email "cms@zenix.app"
+          git fetch origin "$BRANCH"
+          git merge --no-ff "$BRANCH" -m "Merge $BRANCH to master"
+          git push origin master
