@@ -19,6 +19,7 @@ export const SOCIAL_LINKS = {
 
 // Navigation Links
 export const NAV_LINKS = [
+  { href: '/vidual-editor/', label: 'Vidual Editor' },
   { href: '/#features', label: 'Features' },
   { href: '/#testimonials', label: 'Testimonials' },
   { href: '/pricing/', label: 'Pricing' },
