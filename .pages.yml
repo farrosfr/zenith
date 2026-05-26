@@ -106,167 +106,128 @@ content:
 
   - name: homepage
     label: Homepage
-    type: group
-    items:
-      - name: homepage-hero
-        label: Hero
-        type: file
-        path: src/data/homepage.json
-        format: json
+    type: file
+    path: src/data/homepage.json
+    format: json
+    fields:
+      - name: hero
+        type: object
         fields:
-          - name: hero
-            type: object
-            fields:
-              - name: badge
-                type: string
-              - name: headline
-                type: text
-              - name: subheadline
-                type: text
-              - name: ctaPrimary
-                type: string
-              - name: ctaPrimaryHref
-                type: string
-              - name: ctaSecondary
-                type: string
-              - name: ctaSecondaryHref
-                type: string
-
-      - name: homepage-features
-        label: Features
-        type: file
-        path: src/data/homepage.json
-        format: json
+          - name: badge
+            type: string
+          - name: headline
+            type: text
+          - name: subheadline
+            type: text
+          - name: ctaPrimary
+            type: string
+          - name: ctaPrimaryHref
+            type: string
+          - name: ctaSecondary
+            type: string
+          - name: ctaSecondaryHref
+            type: string
+      - name: features
+        type: object
         fields:
-          - name: features
+          - name: heading
+            type: text
+          - name: subtitle
+            type: text
+          - name: items
             type: object
+            list: true
             fields:
-              - name: heading
+              - name: title
+                type: string
+              - name: description
                 type: text
-              - name: subtitle
-                type: text
-              - name: items
-                type: object
-                list: true
-                fields:
-                  - name: title
-                    type: string
-                  - name: description
-                    type: text
-
-      - name: homepage-testimonials
-        label: Testimonials
-        type: file
-        path: src/data/homepage.json
-        format: json
+      - name: testimonials
+        type: object
         fields:
-          - name: testimonials
+          - name: heading
+            type: string
+          - name: subtitle
+            type: text
+          - name: items
             type: object
+            list: true
             fields:
-              - name: heading
-                type: string
-              - name: subtitle
+              - name: quote
                 type: text
-              - name: items
-                type: object
-                list: true
-                fields:
-                  - name: quote
-                    type: text
-                  - name: author
-                    type: string
-                  - name: role
-                    type: string
-                  - name: avatar
-                    type: image
-
-      - name: homepage-pricing
-        label: Pricing
-        type: file
-        path: src/data/homepage.json
-        format: json
+              - name: author
+                type: string
+              - name: role
+                type: string
+              - name: avatar
+                type: image
+      - name: pricing
+        type: object
         fields:
-          - name: pricing
+          - name: heading
+            type: string
+          - name: subtitle
+            type: text
+          - name: toggleMonthly
+            type: string
+          - name: toggleAnnual
+            type: string
+          - name: toggleBadge
+            type: string
+          - name: plans
             type: object
+            list: true
             fields:
-              - name: heading
+              - name: name
                 type: string
-              - name: subtitle
+              - name: description
                 type: text
-              - name: toggleMonthly
+              - name: priceMonthly
                 type: string
-              - name: toggleAnnual
+              - name: priceAnnual
                 type: string
-              - name: toggleBadge
+              - name: buttonLabel
                 type: string
-              - name: plans
-                type: object
-                list: true
-                fields:
-                  - name: name
-                    type: string
-                  - name: description
-                    type: text
-                  - name: priceMonthly
-                    type: string
-                  - name: priceAnnual
-                    type: string
-                  - name: buttonLabel
-                    type: string
-                  - name: buttonVariant
-                    type: string
-                  - name: popular
-                    type: boolean
-                  - name: popularBadge
-                    type: string
-                  - name: features
-                    type: list
-                    items:
-                      type: string
-
-      - name: homepage-faq
-        label: FAQ
-        type: file
-        path: src/data/homepage.json
-        format: json
+              - name: buttonVariant
+                type: string
+              - name: popular
+                type: boolean
+              - name: popularBadge
+                type: string
+              - name: features
+                type: list
+                items:
+                  type: string
+      - name: faq
+        type: object
         fields:
-          - name: faq
+          - name: heading
+            type: string
+          - name: subtitle
+            type: text
+          - name: items
             type: object
+            list: true
             fields:
-              - name: heading
+              - name: question
                 type: string
-              - name: subtitle
+              - name: answer
                 type: text
-              - name: items
-                type: object
-                list: true
-                fields:
-                  - name: question
-                    type: string
-                  - name: answer
-                    type: text
-
-      - name: homepage-cta
-        label: CTA
-        type: file
-        path: src/data/homepage.json
-        format: json
+      - name: cta
+        type: object
         fields:
-          - name: cta
-            type: object
-            fields:
-              - name: heading
-                type: string
-              - name: subtitle
-                type: text
-              - name: ctaPrimary
-                type: string
-              - name: ctaPrimaryHref
-                type: string
-              - name: ctaSecondary
-                type: string
-              - name: ctaSecondaryHref
-                type: string
+          - name: heading
+            type: string
+          - name: subtitle
+            type: text
+          - name: ctaPrimary
+            type: string
+          - name: ctaPrimaryHref
+            type: string
+          - name: ctaSecondary
+            type: string
+          - name: ctaSecondaryHref
+            type: string
 
   - name: vidual-editor
     label: Vidual Editor
