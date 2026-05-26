@@ -1,4 +1,4 @@
-name: Deploy to Cloudflare Pages
+name: Deploy preview
 
 on:
   workflow_dispatch:
@@ -9,26 +9,19 @@ on:
         type: string
 
 jobs:
-  deploy:
+  trigger:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      deployments: write
     steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: ${{ fromJson(github.event.inputs.payload).repository.sha }}
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: 'npm'
-
-      - run: npm ci
-      - run: npm run build
-
-      - name: Deploy to Cloudflare Pages
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CF_API_TOKEN }}
-          command: pages deploy dist --project-name zenix-test --branch ${{ fromJson(github.event.inputs.payload).repository.ref }}
+      - name: Trigger Cloudflare Pages build
+        env:
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CF_ACCOUNT_ID: 4b2c65e127e12b9de8762c74625992ee
+        run: |
+          BRANCH=$(echo '${{ github.event.inputs.payload }}' | jq -r '.repository.ref')
+          curl -s -X POST \
+            "https://api.cloudflare.com/client/v4/accounts/$CF_ACCOUNT_ID/pages/projects/zenix-test/deployments" \
+            -H "Authorization: Bearer $CF_API_TOKEN" \
+            -H "Content-Type: application/json" \
+            -d "{\"branch\": \"$BRANCH\"}"

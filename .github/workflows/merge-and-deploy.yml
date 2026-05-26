@@ -27,5 +27,11 @@ jobs:
           git config user.name "zenix-cms"
           git config user.email "cms@zenix.app"
           git fetch origin "$BRANCH"
-          git merge --no-ff "$BRANCH" -m "Merge $BRANCH to master"
-          git push origin master
+
+          PR_URL=$(gh pr list --head "$BRANCH" --json url --jq '.[0].url')
+          if [ -n "$PR_URL" ]; then
+            gh pr merge "$PR_URL" --merge --subject "Merge $BRANCH to master"
+          else
+            git merge --no-ff "$BRANCH" -m "Merge $BRANCH to master"
+            git push origin master
+          fi
