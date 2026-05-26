@@ -1,16 +1,4 @@
-import 'dotenv/config';
 import { execSync } from 'node:child_process';
-
-const { CF_API_TOKEN, CF_ACCOUNT_ID } = process.env;
-
-if (!CF_API_TOKEN) {
-  console.error('Error: CF_API_TOKEN not set in .env or environment');
-  process.exit(1);
-}
-if (!CF_ACCOUNT_ID) {
-  console.error('Error: CF_ACCOUNT_ID not set in .env or environment');
-  process.exit(1);
-}
 
 let branch;
 try {
@@ -20,26 +8,12 @@ try {
   process.exit(1);
 }
 
-console.log(`Deploying "${branch}" to zenix-test...`);
-
-const res = await fetch(
-  `https://api.cloudflare.com/client/v4/accounts/${CF_ACCOUNT_ID}/pages/projects/zenix-test/deployments`,
-  {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${CF_API_TOKEN}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ branch }),
-  }
-);
-
-const data = await res.json();
-
-if (!data.success) {
-  console.error('Deploy failed:', JSON.stringify(data.errors ?? data, null, 2));
-  process.exit(1);
+const hasChanges = execSync('git status --porcelain', { encoding: 'utf-8' }).trim();
+if (hasChanges) {
+  execSync('git add -A', { stdio: 'inherit' });
+  execSync('git commit -m "chore: deploy preview [skip ci]"', { stdio: 'inherit' });
 }
 
-console.log(`Deploy triggered: ${data.result?.id}`);
-console.log(`URL: ${data.result?.url ?? '(see Cloudflare dashboard)'}`);
+console.log(`Pushing "${branch}" to trigger Cloudflare Pages preview...`);
+execSync(`git push origin ${branch}`, { stdio: 'inherit' });
+console.log('Deploy triggered. Check Cloudflare dashboard.');
