@@ -426,25 +426,6 @@ content:
               - name: ctaSecondaryHref
                 type: string
 
-actions:
-  - name: deploy-preview
-    label: Deploy preview
-    workflow: deploy.yml
-    ref: current
-    confirm:
-      title: Deploy preview?
-      message: Build and deploy the current branch as a preview.
-      button: Deploy
-
-  - name: create-pr
-    label: Create PR to master
-    workflow: create-pr.yml
-    ref: current
-    confirm:
-      title: Create PR to master?
-      message: Create a pull request from the current branch to master for production deployment.
-      button: Create PR
-
 settings:
   commit:
     identity: app
