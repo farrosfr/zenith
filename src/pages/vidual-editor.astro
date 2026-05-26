@@ -21,22 +21,22 @@ import data from '../data/vidual-editor.json';
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center reveal-on-scroll">
       <div class="flex justify-center mb-8">
         <Badge variant="primary" class="px-4 py-1.5 text-sm border border-primary-200 dark:border-primary-800 backdrop-blur-md bg-white/50 dark:bg-primary-900/50">
-          {data.hero.badge}
+          {data.hero?.badge}
         </Badge>
 
-      <h1 class="text-6xl sm:text-7xl lg:text-8xl font-heading font-extrabold tracking-tight text-slate-900 dark:text-white mb-8 max-w-5xl mx-auto leading-[1.1]" set:html={data.hero.headline}>
+      <h1 class="text-6xl sm:text-7xl lg:text-8xl font-heading font-extrabold tracking-tight text-slate-900 dark:text-white mb-8 max-w-5xl mx-auto leading-[1.1]" set:html={data.hero?.headline}>
       </h1>
 
       <p class="text-xl sm:text-2xl text-slate-600 dark:text-slate-400 mb-12 max-w-3xl mx-auto font-sans leading-relaxed">
-        {data.hero.subheadline}
+        {data.hero?.subheadline}
       </p>
 
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20">
-        <Button href={data.hero.ctaPrimaryHref} variant="primary" size="lg" class="w-full sm:w-auto text-lg px-8 py-4 shadow-xl shadow-primary-500/20">
-          {data.hero.ctaPrimary}
+        <Button href={data.hero?.ctaPrimaryHref} variant="primary" size="lg" class="w-full sm:w-auto text-lg px-8 py-4 shadow-xl shadow-primary-500/20">
+          {data.hero?.ctaPrimary}
         </Button>
-        <Button href={data.hero.ctaSecondaryHref} variant="outline" size="lg" class="w-full sm:w-auto text-lg px-8 py-4 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm">
-          {data.hero.ctaSecondary}
+        <Button href={data.hero?.ctaSecondaryHref} variant="outline" size="lg" class="w-full sm:w-auto text-lg px-8 py-4 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm">
+          {data.hero?.ctaSecondary}
         </Button>
       </div>
 
@@ -158,10 +158,10 @@ import data from '../data/vidual-editor.json';
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="text-center max-w-3xl mx-auto mb-16 reveal-on-scroll">
         <h2 class="text-4xl md:text-5xl font-heading font-extrabold text-slate-900 dark:text-white mb-6">
-          {data.tabs.heading}
+          {data.tabs?.heading}
         </h2>
         <p class="text-xl text-slate-600 dark:text-slate-400">
-          {data.tabs.subtitle}
+          {data.tabs?.subtitle}
         </p>
       </div>
 
@@ -171,36 +171,36 @@ import data from '../data/vidual-editor.json';
           <button data-tab="tab-drag" class="tab-btn flex items-center gap-3 w-full text-left px-5 py-4 rounded-xl text-sm font-medium transition-all duration-200 bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 border border-primary-200 dark:border-primary-800 shadow-sm" role="tab" aria-selected="true">
             <span class="w-10 h-10 rounded-xl bg-primary-100 dark:bg-primary-900/40 text-primary-600 dark:text-primary-400 flex items-center justify-center shrink-0" set:html={`<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 15h14M5 9h14"></path><path d="M12 3v18"></path></svg>`} />
             <div>
-              <div class="font-bold text-slate-900 dark:text-white">{data.tabs.items[0].label}</div>
-              <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5 hidden lg:block">{data.tabs.items[0].sublabel}</div>
+              <div class="font-bold text-slate-900 dark:text-white">{data.tabs?.items?.[0].label}</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5 hidden lg:block">{data.tabs?.items?.[0].sublabel}</div>
             </div>
           </button>
           <button data-tab="tab-components" class="tab-btn flex items-center gap-3 w-full text-left px-5 py-4 rounded-xl text-sm font-medium transition-all duration-200 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 border border-transparent" role="tab" aria-selected="false">
             <span class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 flex items-center justify-center shrink-0" set:html={`<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>`} />
             <div>
-              <div class="font-bold text-slate-900 dark:text-white">{data.tabs.items[1].label}</div>
-              <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5 hidden lg:block">{data.tabs.items[1].sublabel}</div>
+              <div class="font-bold text-slate-900 dark:text-white">{data.tabs?.items?.[1].label}</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5 hidden lg:block">{data.tabs?.items?.[1].sublabel}</div>
             </div>
           </button>
           <button data-tab="tab-collab" class="tab-btn flex items-center gap-3 w-full text-left px-5 py-4 rounded-xl text-sm font-medium transition-all duration-200 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 border border-transparent" role="tab" aria-selected="false">
             <span class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 flex items-center justify-center shrink-0" set:html={`<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`} />
             <div>
-              <div class="font-bold text-slate-900 dark:text-white">{data.tabs.items[2].label}</div>
-              <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5 hidden lg:block">{data.tabs.items[2].sublabel}</div>
+              <div class="font-bold text-slate-900 dark:text-white">{data.tabs?.items?.[2].label}</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5 hidden lg:block">{data.tabs?.items?.[2].sublabel}</div>
             </div>
           </button>
           <button data-tab="tab-ai" class="tab-btn flex items-center gap-3 w-full text-left px-5 py-4 rounded-xl text-sm font-medium transition-all duration-200 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 border border-transparent" role="tab" aria-selected="false">
             <span class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 flex items-center justify-center shrink-0" set:html={`<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>`} />
             <div>
-              <div class="font-bold text-slate-900 dark:text-white">{data.tabs.items[3].label}</div>
-              <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5 hidden lg:block">{data.tabs.items[3].sublabel}</div>
+              <div class="font-bold text-slate-900 dark:text-white">{data.tabs?.items?.[3].label}</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5 hidden lg:block">{data.tabs?.items?.[3].sublabel}</div>
             </div>
           </button>
           <button data-tab="tab-export" class="tab-btn flex items-center gap-3 w-full text-left px-5 py-4 rounded-xl text-sm font-medium transition-all duration-200 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 border border-transparent" role="tab" aria-selected="false">
             <span class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 flex items-center justify-center shrink-0" set:html={`<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>`} />
             <div>
-              <div class="font-bold text-slate-900 dark:text-white">{data.tabs.items[4].label}</div>
-              <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5 hidden lg:block">{data.tabs.items[4].sublabel}</div>
+              <div class="font-bold text-slate-900 dark:text-white">{data.tabs?.items?.[4].label}</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5 hidden lg:block">{data.tabs?.items?.[4].sublabel}</div>
             </div>
           </button>
         </div>
@@ -246,12 +246,12 @@ import data from '../data/vidual-editor.json';
                 </div>
               </div>
 
-              <h3 class="text-2xl font-heading font-bold text-slate-900 dark:text-white mb-3">{data.tabs.items[0].title}</h3>
+              <h3 class="text-2xl font-heading font-bold text-slate-900 dark:text-white mb-3">{data.tabs?.items?.[0].title}</h3>
               <p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
-                {data.tabs.items[0].description}
+                {data.tabs?.items?.[0].description}
               </p>
               <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300">
-                {data.tabs.items[0].features.map((f: string) => (
+                {data.tabs?.items?.[0]?.features?.map((f: string) => (
                   <li class="flex gap-2.5 items-center">
                     <svg class="h-4 w-4 text-green-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
                     {f}
@@ -309,12 +309,12 @@ import data from '../data/vidual-editor.json';
                 </div>
               </div>
 
-              <h3 class="text-2xl font-heading font-bold text-slate-900 dark:text-white mb-3">{data.tabs.items[1].title}</h3>
+              <h3 class="text-2xl font-heading font-bold text-slate-900 dark:text-white mb-3">{data.tabs?.items?.[1].title}</h3>
               <p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
-                {data.tabs.items[1].description}
+                {data.tabs?.items?.[1].description}
               </p>
               <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300">
-                {data.tabs.items[1].features.map((f: string) => (
+                {data.tabs?.items?.[1]?.features?.map((f: string) => (
                   <li class="flex gap-2.5 items-center">
                     <svg class="h-4 w-4 text-green-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
                     {f}
@@ -380,12 +380,12 @@ import data from '../data/vidual-editor.json';
                 </div>
               </div>
 
-              <h3 class="text-2xl font-heading font-bold text-slate-900 dark:text-white mb-3">{data.tabs.items[2].title}</h3>
+              <h3 class="text-2xl font-heading font-bold text-slate-900 dark:text-white mb-3">{data.tabs?.items?.[2].title}</h3>
               <p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
-                {data.tabs.items[2].description}
+                {data.tabs?.items?.[2].description}
               </p>
               <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300">
-                {data.tabs.items[2].features.map((f: string) => (
+                {data.tabs?.items?.[2]?.features?.map((f: string) => (
                   <li class="flex gap-2.5 items-center">
                     <svg class="h-4 w-4 text-green-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
                     {f}
@@ -439,12 +439,12 @@ import data from '../data/vidual-editor.json';
                 </div>
               </div>
 
-              <h3 class="text-2xl font-heading font-bold text-slate-900 dark:text-white mb-3">{data.tabs.items[3].title}</h3>
+              <h3 class="text-2xl font-heading font-bold text-slate-900 dark:text-white mb-3">{data.tabs?.items?.[3].title}</h3>
               <p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
-                {data.tabs.items[3].description}
+                {data.tabs?.items?.[3].description}
               </p>
               <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300">
-                {data.tabs.items[3].features.map((f: string) => (
+                {data.tabs?.items?.[3]?.features?.map((f: string) => (
                   <li class="flex gap-2.5 items-center">
                     <svg class="h-4 w-4 text-green-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
                     {f}
@@ -508,12 +508,12 @@ import data from '../data/vidual-editor.json';
                 </div>
               </div>
 
-              <h3 class="text-2xl font-heading font-bold text-slate-900 dark:text-white mb-3">{data.tabs.items[4].title}</h3>
+              <h3 class="text-2xl font-heading font-bold text-slate-900 dark:text-white mb-3">{data.tabs?.items?.[4].title}</h3>
               <p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
-                {data.tabs.items[4].description}
+                {data.tabs?.items?.[4].description}
               </p>
               <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300">
-                {data.tabs.items[4].features.map((f: string) => (
+                {data.tabs?.items?.[4]?.features?.map((f: string) => (
                   <li class="flex gap-2.5 items-center">
                     <svg class="h-4 w-4 text-green-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
                     {f}
@@ -581,15 +581,15 @@ import data from '../data/vidual-editor.json';
 
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="text-center max-w-3xl mx-auto mb-20 reveal-on-scroll">
-        <h2 class="text-4xl md:text-5xl font-heading font-extrabold text-slate-900 dark:text-white mb-6" set:html={data.features.heading}>
+        <h2 class="text-4xl md:text-5xl font-heading font-extrabold text-slate-900 dark:text-white mb-6" set:html={data.features?.heading}>
         </h2>
         <p class="text-xl text-slate-600 dark:text-slate-400 font-sans">
-          {data.features.subtitle}
+          {data.features?.subtitle}
         </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-        {data.features.items.map((item: { title: string; description: string }, i: number) => (
+        {data.features?.items?.map((item: { title: string; description: string }, i: number) => (
           <div class="glass-panel rounded-3xl p-8 flex flex-col hover-glow reveal-on-scroll relative overflow-hidden group min-h-[320px]" style={`transition-delay: ${i * 50}ms;`}>
             <div class="absolute inset-0 bg-gradient-to-br from-primary-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900/40 text-primary-600 dark:text-primary-400 rounded-2xl flex items-center justify-center mb-6 shrink-0" set:html={`<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>`} />
@@ -609,32 +609,32 @@ import data from '../data/vidual-editor.json';
 
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="text-center max-w-3xl mx-auto mb-16 reveal-on-scroll">
-        <h2 class="text-4xl md:text-5xl font-heading font-extrabold text-slate-900 dark:text-white mb-6">{data.pricing.heading}</h2>
+        <h2 class="text-4xl md:text-5xl font-heading font-extrabold text-slate-900 dark:text-white mb-6">{data.pricing?.heading}</h2>
         <p class="text-xl text-slate-600 dark:text-slate-400">
-          {data.pricing.subtitle}
+          {data.pricing?.subtitle}
         </p>
       </div>
 
       <div class="max-w-lg mx-auto">
         <div class="glass-panel border-2 border-primary-500 dark:border-primary-500 rounded-3xl p-10 flex flex-col relative reveal-on-scroll shadow-2xl shadow-primary-500/10">
           <div class="absolute -top-4 left-1/2 -translate-x-1/2">
-            <Badge variant="primary" class="px-4 py-1.5 font-bold shadow-sm">{data.pricing.badge}</Badge>
+            <Badge variant="primary" class="px-4 py-1.5 font-bold shadow-sm">{data.pricing?.badge}</Badge>
           </div>
 
-          <h3 class="text-2xl font-heading font-bold text-slate-900 dark:text-white mb-2 mt-2 text-center">{data.pricing.planName}</h3>
-          <p class="text-slate-500 dark:text-slate-400 text-sm mb-8 text-center">{data.pricing.planDescription}</p>
+          <h3 class="text-2xl font-heading font-bold text-slate-900 dark:text-white mb-2 mt-2 text-center">{data.pricing?.planName}</h3>
+          <p class="text-slate-500 dark:text-slate-400 text-sm mb-8 text-center">{data.pricing?.planDescription}</p>
 
           <div class="text-center mb-8">
-            <span class="text-6xl font-heading font-extrabold text-slate-900 dark:text-white">{data.pricing.price}</span>
-            <span class="text-slate-500 dark:text-slate-400 font-medium"> {data.pricing.priceLabel}</span>
+            <span class="text-6xl font-heading font-extrabold text-slate-900 dark:text-white">{data.pricing?.price}</span>
+            <span class="text-slate-500 dark:text-slate-400 font-medium"> {data.pricing?.priceLabel}</span>
           </div>
 
           <Button variant="primary" class="w-full mb-8 text-lg py-4 shadow-xl shadow-primary-500/20">
-            {data.pricing.buttonLabel}
+            {data.pricing?.buttonLabel}
           </Button>
 
           <ul class="space-y-4 text-sm text-slate-600 dark:text-slate-300">
-            {data.pricing.features.map((f: string) => (
+            {data.pricing?.features?.map((f: string) => (
               <li class="flex gap-3">
                 <svg class="h-5 w-5 text-green-500 dark:text-green-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
                 {f}
@@ -644,7 +644,7 @@ import data from '../data/vidual-editor.json';
         </div>
 
         <p class="text-center text-sm text-slate-400 dark:text-slate-500 mt-8 reveal-on-scroll">
-          {data.pricing.footnote}
+          {data.pricing?.footnote}
         </p>
       </div>
     </div>
@@ -654,14 +654,14 @@ import data from '../data/vidual-editor.json';
   <section class="py-32 bg-slate-50 dark:bg-[#0c0c0f] border-y border-slate-200 dark:border-slate-800 relative overflow-hidden">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl relative z-10">
       <div class="text-center mb-16 reveal-on-scroll">
-        <h2 class="text-4xl md:text-5xl font-heading font-extrabold text-slate-900 dark:text-white mb-6">{data.faq.heading}</h2>
+        <h2 class="text-4xl md:text-5xl font-heading font-extrabold text-slate-900 dark:text-white mb-6">{data.faq?.heading}</h2>
         <p class="text-xl text-slate-600 dark:text-slate-400">
-          {data.faq.subtitle}
+          {data.faq?.subtitle}
         </p>
       </div>
 
       <div class="space-y-4">
-        {data.faq.items.map((faq: { question: string; answer: string }, i: number) => (
+        {data.faq?.items?.map((faq: { question: string; answer: string }, i: number) => (
           <details class="group glass-panel rounded-2xl [&_summary::-webkit-details-marker]:hidden reveal-on-scroll" style={`transition-delay: ${i * 50}ms;`}>
             <summary class="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-slate-900 dark:text-white font-medium">
               <h3 class="text-lg font-heading font-bold">{faq.question}</h3>
@@ -683,16 +683,16 @@ import data from '../data/vidual-editor.json';
   <section class="py-32 bg-primary-600 dark:bg-primary-900 text-white text-center relative overflow-hidden">
     <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCI+CjxyZWN0IHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSI+PC9yZWN0Pgo8Y2lyY2xlIGN4PSIxIiBjeT0iMSIgcj0iMSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE1KSI+PC9jaXJjbGU+Cjwvc3ZnPg==')] opacity-50"></div>
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl relative z-10 reveal-on-scroll">
-      <h2 class="text-4xl md:text-6xl font-heading font-extrabold mb-6 tracking-tight">{data.cta.heading}</h2>
+      <h2 class="text-4xl md:text-6xl font-heading font-extrabold mb-6 tracking-tight">{data.cta?.heading}</h2>
       <p class="text-xl text-primary-100 dark:text-primary-200 mb-12">
-        {data.cta.subtitle}
+        {data.cta?.subtitle}
       </p>
       <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <a href={data.cta.ctaPrimaryHref} class="inline-flex items-center justify-center px-8 py-4 text-lg font-bold rounded-xl bg-white text-primary-600 hover:bg-slate-50 hover:scale-105 transition-all shadow-2xl shadow-black/20">
-          {data.cta.ctaPrimary}
+        <a href={data.cta?.ctaPrimaryHref} class="inline-flex items-center justify-center px-8 py-4 text-lg font-bold rounded-xl bg-white text-primary-600 hover:bg-slate-50 hover:scale-105 transition-all shadow-2xl shadow-black/20">
+          {data.cta?.ctaPrimary}
         </a>
-        <a href={data.cta.ctaSecondaryHref} class="inline-flex items-center justify-center px-8 py-4 text-lg font-bold rounded-xl border-2 border-primary-400 text-white hover:bg-primary-700 dark:hover:bg-primary-800 transition-colors">
-          {data.cta.ctaSecondary}
+        <a href={data.cta?.ctaSecondaryHref} class="inline-flex items-center justify-center px-8 py-4 text-lg font-bold rounded-xl border-2 border-primary-400 text-white hover:bg-primary-700 dark:hover:bg-primary-800 transition-colors">
+          {data.cta?.ctaSecondary}
         </a>
       </div>
     </div>
