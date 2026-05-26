@@ -1,4 +1,23 @@
 import { execSync } from 'node:child_process';
+import { readFileSync } from 'node:fs';
+import { resolve, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+try {
+  const envContent = readFileSync(resolve(__dirname, '..', '.env'), 'utf-8');
+  for (const line of envContent.split('\n')) {
+    const trimmed = line.trim();
+    if (trimmed && !trimmed.startsWith('#')) {
+      const eqIndex = trimmed.indexOf('=');
+      if (eqIndex > 0) {
+        const key = trimmed.slice(0, eqIndex).trim();
+        const val = trimmed.slice(eqIndex + 1).trim();
+        if (!process.env[key]) process.env[key] = val;
+      }
+    }
+  }
+} catch { /* .env is optional */ }
 
 const CF_API_TOKEN = process.env.CF_API_TOKEN;
 const CF_ACCOUNT_ID = process.env.CF_ACCOUNT_ID;
@@ -26,7 +45,7 @@ console.log(`Deploying branch "${branch}" to Cloudflare Pages...`);
 
 try {
   const response = await fetch(
-    `https://api.cloudflare.com/client/v4/accounts/${CF_ACCOUNT_ID}/pages/projects/${PROJECT}/deploy`,
+    `https://api.cloudflare.com/client/v4/accounts/${CF_ACCOUNT_ID}/pages/projects/${PROJECT}/deployments`,
     {
       method: 'POST',
       headers: {
@@ -44,7 +63,9 @@ try {
     console.log(`Deployment ID: ${data.result?.id}`);
     console.log(`URL: ${data.result?.url || 'check Cloudflare dashboard'}`);
   } else {
-    console.error('Deploy failed:', JSON.stringify(data.errors, null, 2));
+    console.error('Deploy failed:');
+    if (data.errors) console.error(JSON.stringify(data.errors, null, 2));
+    else console.error(JSON.stringify(data, null, 2));
     process.exit(1);
   }
 } catch (err) {
