@@ -3,6 +3,12 @@ name: Deploy to Cloudflare Pages
 on:
   push:
     branches: ['**']
+  workflow_dispatch:
+    inputs:
+      payload:
+        description: Pages CMS payload as JSON
+        required: true
+        type: string
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -10,27 +16,6 @@ concurrency:
 
 jobs:
   deploy:
-    if: github.ref_name == 'master'
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      deployments: write
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: 'npm'
-      - run: npm ci
-      - run: npm run build
-      - name: Deploy to Cloudflare Pages
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CF_API_TOKEN }}
-          command: pages deploy dist --project-name zenix --branch master
-
-  preview:
-    if: github.ref_name != 'master'
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -38,29 +23,46 @@ jobs:
       pull-requests: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'workflow_dispatch' && fromJson(github.event.inputs.payload).repository.sha || github.ref }}
+
       - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'npm'
+
       - run: npm ci
       - run: npm run build
+
+      - name: Determine branch
+        id: branch
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            BRANCH=$(echo '${{ github.event.inputs.payload }}' | jq -r '.repository.ref')
+          else
+            BRANCH="${{ github.ref_name }}"
+          fi
+          echo "branch=$BRANCH" >> $GITHUB_OUTPUT
+
       - name: Deploy to Cloudflare Pages
         id: deploy
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
-          command: pages deploy dist --project-name zenix --branch ${{ github.ref_name }}
+          command: pages deploy dist --project-name zenix --branch ${{ steps.branch.outputs.branch }}
 
       - name: Create Pull Request
+        if: steps.branch.outputs.branch != 'master'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          PR_EXISTS=$(gh pr list --head "${{ github.ref_name }}" --json id --jq 'length')
+          BRANCH="${{ steps.branch.outputs.branch }}"
+          PR_EXISTS=$(gh pr list --head "$BRANCH" --json id --jq 'length')
           if [ "$PR_EXISTS" -eq 0 ]; then
             gh pr create \
               --base master \
-              --head "${{ github.ref_name }}" \
-              --title "CMS: ${{ github.ref_name }}" \
+              --head "$BRANCH" \
+              --title "CMS: $BRANCH" \
               --body "Preview: ${{ steps.deploy.outputs.deployment-url }}" \
               --label "cms"
           fi
