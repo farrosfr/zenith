@@ -10,6 +10,10 @@ export default defineConfig({
   base: '/',
   trailingSlash: 'always',
 
+  build: {
+    inlineStylesheets: 'always'
+  },
+
   vite: {
     plugins: [tailwindcss()]
   },

@@ -4,7 +4,9 @@ Zenix is a polished Astro SaaS theme by [Farros FR](https://farrosfr.com) with r
 
 [Live demo](https://zenix.farros.co/) · [Repository](https://github.com/farrosfr/zenix)
 
-![alt text](image-1.png)
+![alt text](readme-hero.png)
+![alt text](readme-speed.png)
+![alt text](readme-speed-mobile.png)
 
 ## Features
 
